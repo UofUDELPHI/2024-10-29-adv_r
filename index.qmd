@@ -1,0 +1,75 @@
+---
+title: "Introduction to Python for Data Science"
+subtitle: "University of Utah"
+---
+
+::: {.callout-note appearance="simple" icon=false}
+February 8-9 2024
+
+9:00 am -- 4:00 pm MDT
+
+HELIX Rm - GS155 - Alder
+
+**Instructors**: Rebecca Barter, Alec Chapman
+
+**Helpers**: TBD
+:::
+
+**Registration**: Use the following link to sign up for this workshop.
+
+## General Information
+
+**What**: This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the Pandas library.
+
+**Who**: The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for basic data analysis. You don't need to have coding experience or any previous knowledge of Python to attend this workshop.
+
+**Where**: HELIX Rm - GS155 - Alder
+
+**When**: February 8-9 2024
+
+**Requirements**: Participants must bring a laptop on which they can access the internet via a web browser. We will be using [Google colab notebooks](https://colab.google/) throughout this workshop.
+
+**Contact**: Please email penny.atkins@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information.
+
+## Schedule
+
+### Day 1
+
+
+| Time     | Topic           |
+| -------------:|:-------------|
+| 9:00 am     | Introduction and Setup |
+| 9:30 am    | Variables |
+| 10:00 am   | Types |
+| 10:30 am   | Morning Break |
+| 11:00 am   | Type conversions |
+| 11:30 am   | Boolean operations |
+| 12:00 pm   | Lunch |
+| 1:00 pm   | The numpy library |
+| 1:45 pm   | The pandas library |
+| 2:15 pm   | DataFrame attributes and methods |
+| 2:30 pm   | Afternoon Break |
+| 3:00 pm   | Data frame indexes |
+| 3:30 pm   | Pandas series |
+| 4:00 pm   | End |
+
+
+
+### Day 2
+
+
+| Time      | Topic           |
+| -------------:|:-------------|
+| 9:00 am    | Subsetting with `[]` and `.loc` |
+| 9:45 am    | Filtering rows using logical conditioning |
+| 10:00 am   | Filtering rows using `.query` |
+| 10:15 am   | Positional indexing with `.iloc` |
+| 10:30 am   | Morning Break |
+| 11:00 am   | Adding and dropping rows from DataFrames |
+| 11:30 am   | Computing summaries of DataFrames |
+| 12:00 pm   | Lunch |
+| 1:00 pm   | Grouped computations |
+| 1:30 pm   | Data visualization |
+| 2:30 pm   | Afternoon Break |
+| 3:00 pm   | Lists and iteration |
+| 4:00 pm   | End |
