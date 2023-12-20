@@ -17,15 +17,11 @@ subtitle: "University of Utah"
 
 ## General Information
 
-**What**: This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the Pandas library.
+This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the Pandas library.
 
-**Who**: The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for basic data analysis. You don't need to have coding experience or any previous knowledge of Python to attend this workshop.
+The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for basic data analysis. You don't need to have coding experience or any previous knowledge of Python to attend this workshop.
 
-**Where**: HELIX Rm - GS155 - Alder
-
-**When**: February 8-9 2024
-
-**Requirements**: Participants must bring a laptop on which they can access the internet via a web browser. We will be using [Google colab notebooks](https://colab.google/) throughout this workshop.
+**Requirements**: Participants must bring a laptop on which they can access the internet via a web browser. We will be using [Google Colab notebooks](https://colab.google/) throughout this workshop.
 
 **Contact**: Please email penny.atkins@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information.
 
