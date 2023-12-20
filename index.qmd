@@ -4,11 +4,11 @@ subtitle: "University of Utah"
 ---
 
 ::: {.callout-note appearance="simple" icon=false}
-February 8-9 2024
+**Date**: February 8-9 2024
 
-9:00 am -- 4:00 pm MDT
+**Time**: 9:00 am -- 4:00 pm MDT
 
-HELIX Rm - GS155 - Alder
+**Location**: HELIX Rm - GS155 - Alder
 
 **Instructors**: Rebecca Barter, Alec Chapman
 
