@@ -17,9 +17,9 @@ subtitle: "University of Utah"
 
 ## General Information
 
-**What**: This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the Pandas library.
+**What**: This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the **Pandas library.**
 
-**Who**: The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for basic data analysis. You don't need to have coding experience or any previous knowledge of Python to attend this workshop.
+**Who**: The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for data analysis. You don't need to have coding experience or any previous knowledge of Python to attend this workshop.
 
 **Requirements**: Participants must bring a laptop on which they can access the internet via a web browser. We will be using [Google Colab notebooks](https://colab.google/) throughout this workshop.
 
