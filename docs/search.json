@@ -11,7 +11,7 @@
     "href": "index.html#general-information",
     "title": "Introduction to Python for Data Analysis",
     "section": "General Information",
-    "text": "General Information\nThis workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the Pandas library.\nThe course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for basic data analysis. You don’t need to have coding experience or any previous knowledge of Python to attend this workshop.\nRequirements: Participants must bring a laptop on which they can access the internet via a web browser. We will be using Google Colab notebooks throughout this workshop.\nContact: Please email penny.atkins@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information."
+    "text": "General Information\nWhat: This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the Pandas library.\nWho: The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for basic data analysis. You don’t need to have coding experience or any previous knowledge of Python to attend this workshop.\nRequirements: Participants must bring a laptop on which they can access the internet via a web browser. We will be using Google Colab notebooks throughout this workshop.\nContact: Please email penny.atkins@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information."
   },
   {
     "objectID": "index.html#schedule",
