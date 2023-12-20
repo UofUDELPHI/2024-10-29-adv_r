@@ -11,8 +11,6 @@ subtitle: "University of Utah"
 **Location**: HELIX Rm - GS155 - Alder
 
 **Instructors**: Rebecca Barter, Alec Chapman
-
-**Helpers**: TBD
 :::
 
 **Registration**: Use the following link to sign up for this workshop.
