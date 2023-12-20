@@ -3,6 +3,9 @@ title: "Introduction to Python for Data Analysis"
 subtitle: "University of Utah"
 ---
 
+![](DELPHI-long.png)
+
+
 ::: {.callout-note appearance="simple" icon=false}
 **Date**: February 8-9 2024
 
@@ -13,7 +16,7 @@ subtitle: "University of Utah"
 **Instructors**: Rebecca Barter, Alec Chapman
 :::
 
-**Registration**: Use the following link to sign up for this workshop.
+**Registration**: Use the [following link](https://docs.google.com/forms/d/e/1FAIpQLSdlt4HZmLD5xJZkFUEG1wCyjxngEtLpQZpgH0Zx_7PbmNE40Q/viewform) to sign up for this workshop.
 
 ## General Information
 
