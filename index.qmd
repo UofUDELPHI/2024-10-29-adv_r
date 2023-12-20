@@ -3,7 +3,7 @@ title: "Introduction to Python for Data Analysis"
 subtitle: "University of Utah"
 ---
 
-![](DELPHI-long.png)
+[![](DELPHI-long.png)](https://uofuhealth.utah.edu/delphi-data-science-initiative)
 
 
 ::: {.callout-note appearance="simple" icon=false}
@@ -17,6 +17,8 @@ subtitle: "University of Utah"
 :::
 
 **Registration**: Use the [following link](https://docs.google.com/forms/d/e/1FAIpQLSdlt4HZmLD5xJZkFUEG1wCyjxngEtLpQZpgH0Zx_7PbmNE40Q/viewform) to sign up for this workshop.
+
+[**Sign up for the DELPHI mailing list**](https://www.lists.utah.edu/wws/subscribe/delphi?previous_action=info) to stay in the loop about future workshops and funding opportunities.
 
 ## General Information
 
