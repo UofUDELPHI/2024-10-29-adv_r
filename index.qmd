@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Python for Data Science"
+title: "Introduction to Python for Data Analysis"
 subtitle: "University of Utah"
 ---
 
