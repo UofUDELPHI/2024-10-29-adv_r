@@ -64,7 +64,7 @@ subtitle: "University of Utah"
 | 10:00 am   | Filtering rows using `.query` |
 | 10:15 am   | Positional indexing with `.iloc` |
 | 10:30 am   | Morning Break |
-| 11:00 am   | Adding and dropping rows from DataFrames |
+| 11:00 am   | Adding and dropping columns from DataFrames |
 | 11:30 am   | Computing summaries of DataFrames |
 | 12:00 pm   | Lunch |
 | 1:00 pm   | Grouped computations |
