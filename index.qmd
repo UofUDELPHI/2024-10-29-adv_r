@@ -39,17 +39,16 @@ subtitle: "University of Utah"
 | -------------:|:-------------|:---------------|:-----------------|
 | 9:00 am     | Introduction and Setup |   |   |
 | 9:30 am    | Variables | [01_variables.ipynb](https://drive.google.com/file/d/1pRt-Q1Wgv1JjwsjtkjXtXYQvXCRubi5O/view?usp=sharing)   |    |
-| 10:00 am   | Types |  |    |
-| 10:30 am   | Morning Break | |    |
-| 11:00 am   | Type conversions | |    |
-| 11:30 am   | Boolean operations | |    |
+| 10:00 am   | Types |   [02_types.ipynb](https://drive.google.com/file/d/1HzUSyw9txQn35vQP8Ae4qXVP74QqNMud/view?usp=sharing)   | |
+| 10:30 am   | Morning Break |   |    |
+| 11:00 am   | Type conversions | [03_type_conversions.ipynb](https://drive.google.com/file/d/1tGbz5EP68Yeup9rhJfwD4D5WRg4DzR9o/view?usp=sharing)   |    |
+| 11:30 am   | Boolean operations | [04_boolean_operations.ipynb](https://drive.google.com/file/d/1swXP2ROYwKHjTMWBsawzh5upfkb5yUnI/view?usp=sharing) |    |
 | 12:00 pm   | Lunch | |    |
-| 1:00 pm   | The numpy library | |    |
-| 1:45 pm   | The pandas library | |    |
-| 2:15 pm   | DataFrame attributes and methods | |    |
+| 1:00 pm   | The numpy library | [05_numpy.ipynb](https://drive.google.com/file/d/1Ow01eU5EqfULeiX0OI2HCb3xgrR7_xNR/view?usp=sharing) |    |
+| 1:45 pm   | The pandas library | [06_pandas_dataframes.ipynb](https://drive.google.com/file/d/17uAJb634YHSAE3UIiC6g6NPsDjfWffDh/view?usp=sharing) |    |
 | 2:30 pm   | Afternoon Break | |    |
-| 3:00 pm   | Data frame indexes | |    |
-| 3:30 pm   | Pandas series | |    |
+| 3:00 pm   | Data frame indexes | [07_index.ipynb](https://drive.google.com/file/d/199FavZjZ2Y6G1MGaGMWluT-vhuda4HB6/view?usp=sharing) |    |
+| 3:30 pm   | Pandas series | [08_series.ipynb](https://drive.google.com/file/d/1421UBQPyiqVQ_w3PRYXfeeCS96AP6L3o/view?usp=sharing) |    |
 | 4:00 pm   | End | |    |
 
 
@@ -57,18 +56,18 @@ subtitle: "University of Utah"
 ### Day 2
 
 
-| Time      | Topic           |
+| Time      | Topic           | Incomplete notebook | Complete notebook | 
 | -------------:|:-------------|
-| 9:00 am    | Subsetting with `[]` and `.loc` |
-| 9:45 am    | Filtering rows using logical conditioning |
-| 10:00 am   | Filtering rows using `.query` |
-| 10:15 am   | Positional indexing with `.iloc` |
-| 10:30 am   | Morning Break |
-| 11:00 am   | Adding and dropping columns from DataFrames |
-| 11:30 am   | Computing summaries of DataFrames |
-| 12:00 pm   | Lunch |
-| 1:00 pm   | Grouped computations |
-| 1:30 pm   | Data visualization |
-| 2:30 pm   | Afternoon Break |
-| 3:00 pm   | Lists and iteration |
-| 4:00 pm   | End |
+| 9:00 am    | Subsetting with `[]` and `.loc` | [09_subsetting.ipynb](https://drive.google.com/file/d/1bR-TLphPFiJGBKfTocW7_UCEVI67ZKfk/view?usp=sharing)   |   |
+| 9:45 am    | Filtering rows using logical conditioning | [10_filtering_logical.ipynb](https://drive.google.com/file/d/1vk4popl0x1boqNth0yGf8r-J_Oj6-MiM/view?usp=sharing)   |   |
+| 10:00 am   | Filtering rows using `.query` | [11_filtering_query.ipynb](https://drive.google.com/file/d/1U1y3qQEL6QiZQBz3xpI7W6QzLqFxMxzC/view?usp=sharing)   |   |
+| 10:15 am   | Positional indexing with `.iloc` | [12_iloc.ipynb](https://drive.google.com/file/d/1U1y3qQEL6QiZQBz3xpI7W6QzLqFxMxzC/view?usp=sharing)   |   |
+| 10:30 am   | Morning Break |   |   |
+| 11:00 am   | Adding and dropping columns from DataFrames | [13_modifying_dataframes.ipynb](https://drive.google.com/file/d/1LRDDQZQyGwy4qzA9yur1yVW9wp97qa2y/view?usp=sharing)   |   |
+| 11:30 am   | Computing summaries of DataFrames | [14_summarizing_dataframes.ipynb](https://drive.google.com/file/d/1As3Al76bUQDXZXzJRwHDOKRS1egatpHw/view?usp=sharing)   |   |
+| 12:00 pm   | Lunch |   |   |
+| 1:00 pm   | Grouped computations | [15_grouped_computations.ipynb](https://drive.google.com/file/d/1uNBcbw95Ltm0sawNgZQU8jSfQXZO6t9n/view?usp=sharing)   |   |
+| 1:30 pm   | Data visualization | [16_visualization.ipynb](https://drive.google.com/file/d/1WZwYKag_1IhiPuQGXlcJ8LqcqdjEwI5c/view?usp=sharing)   |   |
+| 2:30 pm   | Afternoon Break |   |   |
+| 3:00 pm   | Lists and iteration | [17_list_comprehension.ipynb](https://drive.google.com/file/d/1EJc5ew0OzFirzCcX_PwczKElLFzD1nyu/view?usp=sharing)  |   |
+| 4:00 pm   | End |   |   |
