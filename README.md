@@ -14,3 +14,5 @@ For help publishing using GitHub pages with Quarto see: https://quarto.org/docs/
 The content notebooks in this repo have been uploaded to Google Colab, and the links provided on the webpage are "Viewer" only links. Learners will need to make a copy of the notebook to work in it. Also ensure that they have the data files when relevant. 
 
 To make changes to the notebook files, you will need to explicitly modify the version on Google Colab (modifications to the notebook files that live in this repo will *not* be reflected in the Colab version).
+
+When teaching live, make sure that you are editing the notebook files using a different Google account or using different source files to the ones linked in the schedule (otherwise you will be modifying the original blank files).

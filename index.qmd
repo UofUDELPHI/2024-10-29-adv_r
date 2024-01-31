@@ -57,7 +57,7 @@ subtitle: "University of Utah"
 
 
 | Time      | Topic           | Incomplete notebook | Complete notebook | 
-| -------------:|:-------------|
+| -------------:|:-------------|:----------|:----------|
 | 9:00 am    | Subsetting with `[]` and `.loc` | [09_subsetting.ipynb](https://drive.google.com/file/d/1bR-TLphPFiJGBKfTocW7_UCEVI67ZKfk/view?usp=sharing)   |   |
 | 9:45 am    | Filtering rows using logical conditioning | [10_filtering_logical.ipynb](https://drive.google.com/file/d/1vk4popl0x1boqNth0yGf8r-J_Oj6-MiM/view?usp=sharing)   |   |
 | 10:00 am   | Filtering rows using `.query` | [11_filtering_query.ipynb](https://drive.google.com/file/d/1U1y3qQEL6QiZQBz3xpI7W6QzLqFxMxzC/view?usp=sharing)   |   |
