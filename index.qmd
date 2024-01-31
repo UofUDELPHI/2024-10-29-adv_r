@@ -39,18 +39,18 @@ subtitle: "University of Utah"
 | -------------:|:-------------|:---------------|:-----------------|
 | 9:00 am     | Introduction and Setup |   |   |
 | 9:30 am    | Variables | [01_variables.ipynb](https://drive.google.com/file/d/1pRt-Q1Wgv1JjwsjtkjXtXYQvXCRubi5O/view?usp=sharing)   |    |
-| 10:00 am   | Types |
-| 10:30 am   | Morning Break |
-| 11:00 am   | Type conversions |
-| 11:30 am   | Boolean operations |
-| 12:00 pm   | Lunch |
-| 1:00 pm   | The numpy library |
-| 1:45 pm   | The pandas library |
-| 2:15 pm   | DataFrame attributes and methods |
-| 2:30 pm   | Afternoon Break |
-| 3:00 pm   | Data frame indexes |
-| 3:30 pm   | Pandas series |
-| 4:00 pm   | End |
+| 10:00 am   | Types |  |    |
+| 10:30 am   | Morning Break | |    |
+| 11:00 am   | Type conversions | |    |
+| 11:30 am   | Boolean operations | |    |
+| 12:00 pm   | Lunch | |    |
+| 1:00 pm   | The numpy library | |    |
+| 1:45 pm   | The pandas library | |    |
+| 2:15 pm   | DataFrame attributes and methods | |    |
+| 2:30 pm   | Afternoon Break | |    |
+| 3:00 pm   | Data frame indexes | |    |
+| 3:30 pm   | Pandas series | |    |
+| 4:00 pm   | End | |    |
 
 
 
