@@ -35,20 +35,20 @@ subtitle: "University of Utah"
 ### Day 1
 
 
-| Time     | Topic           | Incomplete notebook |  Complete notebook |
-| -------------:|:-------------|:---------------|:-----------------|
+| Time  | Topic     | Incomplete notebook |  Complete notebook |
+| ----:|:----|:---------------|:-----------------|
 | 9:00 am     | Introduction and Setup |   |   |
-| 9:30 am    | Variables | [01_variables.ipynb](https://drive.google.com/file/d/1pRt-Q1Wgv1JjwsjtkjXtXYQvXCRubi5O/view?usp=sharing)   |    |
-| 10:00 am   | Types |   [02_types.ipynb](https://drive.google.com/file/d/1HzUSyw9txQn35vQP8Ae4qXVP74QqNMud/view?usp=sharing)   | |
+| 9:30 am    | Variables | [01_variables.ipynb](https://drive.google.com/file/d/1pRt-Q1Wgv1JjwsjtkjXtXYQvXCRubi5O/view?usp=sharing)   | [01_variables_complete.ipynb](https://drive.google.com/file/d/1XUU2Wo0yX1Fk3OYGJOIk9ZrGmK7zXXHv/view?usp=sharing)   |
+| 10:00 am   | Types |   [02_types.ipynb](https://drive.google.com/file/d/1HzUSyw9txQn35vQP8Ae4qXVP74QqNMud/view?usp=sharing)   | [02_types_complete.ipynb](https://drive.google.com/file/d/1FAG4mmy1V1tfHqpu9uLslsV-TrWsY1qE/view?usp=sharing) |
 | 10:30 am   | Morning Break |   |    |
-| 11:00 am   | Type conversions | [03_type_conversions.ipynb](https://drive.google.com/file/d/1tGbz5EP68Yeup9rhJfwD4D5WRg4DzR9o/view?usp=sharing)   |    |
-| 11:30 am   | Boolean operations | [04_boolean_operations.ipynb](https://drive.google.com/file/d/1swXP2ROYwKHjTMWBsawzh5upfkb5yUnI/view?usp=sharing) |    |
+| 11:00 am   | Type conversions | [03_type_conversions.ipynb](https://drive.google.com/file/d/1tGbz5EP68Yeup9rhJfwD4D5WRg4DzR9o/view?usp=sharing)   | [03_type_conversions_complete.ipynb](https://drive.google.com/file/d/1FDAqcOB8riVz-PGh4rH7F592mXYdUPmS/view?usp=sharing)   |
+| 11:30 am   | Boolean operations | [04_boolean_operations.ipynb](https://drive.google.com/file/d/1swXP2ROYwKHjTMWBsawzh5upfkb5yUnI/view?usp=sharing) | [04_boolean_operations_complete.ipynb](https://drive.google.com/file/d/12Fg_6Q2QKcIEJh2lz0eHzqMen7vxGfML/view?usp=sharing)   |
 | 12:00 pm   | Lunch | |    |
-| 1:00 pm   | The numpy library | [05_numpy.ipynb](https://drive.google.com/file/d/1Ow01eU5EqfULeiX0OI2HCb3xgrR7_xNR/view?usp=sharing) |    |
-| 1:45 pm   | The pandas library | [06_pandas_dataframes.ipynb](https://drive.google.com/file/d/17uAJb634YHSAE3UIiC6g6NPsDjfWffDh/view?usp=sharing) |    |
+| 1:00 pm   | The numpy library | [05_numpy.ipynb](https://drive.google.com/file/d/1Ow01eU5EqfULeiX0OI2HCb3xgrR7_xNR/view?usp=sharing) |    [05_numpy_complete.ipynb](https://drive.google.com/file/d/15h8O4djFO2BWY5UQiXs9DTHLpy1q3DiF/view?usp=sharing) |
+| 1:45 pm   | The pandas library | [06_pandas_dataframes.ipynb](https://drive.google.com/file/d/17uAJb634YHSAE3UIiC6g6NPsDjfWffDh/view?usp=sharing) | [06_pandas_dataframes_complete.ipynb](https://drive.google.com/file/d/1P5XFsaC2hmiqPIORA4ESMTLl6KTLu7ak/view?usp=sharing)   |
 | 2:30 pm   | Afternoon Break | |    |
-| 3:00 pm   | Data frame indexes | [07_index.ipynb](https://drive.google.com/file/d/199FavZjZ2Y6G1MGaGMWluT-vhuda4HB6/view?usp=sharing) |    |
-| 3:30 pm   | Pandas series | [08_series.ipynb](https://drive.google.com/file/d/1421UBQPyiqVQ_w3PRYXfeeCS96AP6L3o/view?usp=sharing) | [08_series_complete.ipynb](https://drive.google.com/file/d/1bWqUI_SYP_PzNwCoZcluQf6Yyj7RFgXb/view?usp=sharing)   |
+| 3:00 pm   | Data frame indexes | [07_index.ipynb](https://drive.google.com/file/d/199FavZjZ2Y6G1MGaGMWluT-vhuda4HB6/view?usp=sharing) |    [07_index_complete.ipynb](https://drive.google.com/file/d/1qRL1ndgZttvLrywFYhXel2SBP5BoZAJT/view?usp=sharing) |
+| 3:30 pm   | Pandas series | [08_series.ipynb](https://drive.google.com/file/d/1421UBQPyiqVQ_w3PRYXfeeCS96AP6L3o/view?usp=sharing) | [08_series_complete.ipynb](https://drive.google.com/file/d/1XYbM-05ImYA4vH3K6k7DuIRyxuyReBlw/view?usp=sharing)   |
 | 4:00 pm   | End | |    |
 
 
@@ -56,18 +56,18 @@ subtitle: "University of Utah"
 ### Day 2
 
 
-| Time      | Topic           | Incomplete notebook | Complete notebook | 
-| -------------:|:-------------|:----------|:----------|
-| 9:00 am    | Subsetting with `[]` and `.loc` | [09_subsetting.ipynb](https://drive.google.com/file/d/1bR-TLphPFiJGBKfTocW7_UCEVI67ZKfk/view?usp=sharing)   |   |
-| 9:45 am    | Filtering rows using logical conditioning | [10_filtering_logical.ipynb](https://drive.google.com/file/d/1vk4popl0x1boqNth0yGf8r-J_Oj6-MiM/view?usp=sharing)   |   |
-| 10:00 am   | Filtering rows using `.query` | [11_filtering_query.ipynb](https://drive.google.com/file/d/1U1y3qQEL6QiZQBz3xpI7W6QzLqFxMxzC/view?usp=sharing)   |   |
-| 10:15 am   | Positional indexing with `.iloc` | [12_iloc.ipynb](https://drive.google.com/file/d/1mEgfaZWiEQv7HAf4RSXCadtsKSN_7pp7/view?usp=sharing)   |   |
+| Time   | Topic           | Incomplete notebook | Complete notebook | 
+| ----:|:----|:---------------|:-----------------|
+| 9:00 am    | Subsetting with `[]` and `.loc` | [09_subsetting.ipynb](https://drive.google.com/file/d/1bR-TLphPFiJGBKfTocW7_UCEVI67ZKfk/view?usp=sharing)   |  [09_subsetting_complete.ipynb](https://drive.google.com/file/d/1KNZhaHk1ws4GNeRKKXDUyyjFDbSJkB9j/view?usp=sharing) |
+| 9:45 am    | Filtering rows using logical conditioning | [10_filtering_logical.ipynb](https://drive.google.com/file/d/1vk4popl0x1boqNth0yGf8r-J_Oj6-MiM/view?usp=sharing)   | [10_filtering_logical_complete.ipynb](https://drive.google.com/file/d/1kUHy0Cg2nkqACCyQrw8rzLRqEK9DT-qT/view?usp=sharing)  |
+| 10:00 am   | Filtering rows using `.query` | [11_filtering_query.ipynb](https://drive.google.com/file/d/1U1y3qQEL6QiZQBz3xpI7W6QzLqFxMxzC/view?usp=sharing)   | [11_filtering_query_complete.ipynb](https://drive.google.com/file/d/1XUbbwUzdSsePq1AMNrSggg-K-vNRBJed/view?usp=sharing)  |
+| 10:15 am   | Positional indexing with `.iloc` | [12_iloc.ipynb](https://drive.google.com/file/d/1mEgfaZWiEQv7HAf4RSXCadtsKSN_7pp7/view?usp=sharing)   | [12_iloc_complete.ipynb](https://drive.google.com/file/d/13_3IWYgSsN7ezes7xlXFPJAGqE6tsyZ9/view?usp=sharing)  |
 | 10:30 am   | Morning Break |   |   |
-| 11:00 am   | Adding and dropping columns from DataFrames | [13_modifying_dataframes.ipynb](https://drive.google.com/file/d/1LRDDQZQyGwy4qzA9yur1yVW9wp97qa2y/view?usp=sharing)   |   |
-| 11:30 am   | Computing summaries of DataFrames | [14_summarizing_dataframes.ipynb](https://drive.google.com/file/d/1As3Al76bUQDXZXzJRwHDOKRS1egatpHw/view?usp=sharing)   |   |
+| 11:00 am   | Adding and dropping columns from DataFrames | [13_modifying_dataframes.ipynb](https://drive.google.com/file/d/1LRDDQZQyGwy4qzA9yur1yVW9wp97qa2y/view?usp=sharing)   |  [13_modifying_dataframes_complete.ipynb](https://drive.google.com/file/d/1-vV1Yua2VwPxaWB4Jw5Z_tR6ze7fqKob/view?usp=sharing) |
+| 11:30 am   | Computing summaries of DataFrames | [14_summarizing_dataframes.ipynb](https://drive.google.com/file/d/1As3Al76bUQDXZXzJRwHDOKRS1egatpHw/view?usp=sharing)   |  [14_summarizing_dataframes_complete.ipynb](https://drive.google.com/file/d/1_iBsF1PKZQkC_qXWHH_ec4_-Btzim-c6/view?usp=sharing) |
 | 12:00 pm   | Lunch |   |   |
-| 1:00 pm   | Grouped computations | [15_grouped_computations.ipynb](https://drive.google.com/file/d/1uNBcbw95Ltm0sawNgZQU8jSfQXZO6t9n/view?usp=sharing)   |   |
-| 1:30 pm   | Data visualization | [16_visualization.ipynb](https://drive.google.com/file/d/1WZwYKag_1IhiPuQGXlcJ8LqcqdjEwI5c/view?usp=sharing)   |   |
+| 1:00 pm   | Grouped computations | [15_grouped_computations.ipynb](https://drive.google.com/file/d/1uNBcbw95Ltm0sawNgZQU8jSfQXZO6t9n/view?usp=sharing)   |  [15_grouped_computations_complete.ipynb](https://drive.google.com/file/d/1ZTlNuU95Nmr6UwB8qLMB5zqdBshDDqHj/view?usp=sharing) |
+| 1:30 pm   | Data visualization | [16_visualization.ipynb](https://drive.google.com/file/d/1WZwYKag_1IhiPuQGXlcJ8LqcqdjEwI5c/view?usp=sharing)   | [16_visualization_complete.ipynb](https://drive.google.com/file/d/1yWlEUNZ_pXg47bGxOTFwz5EydkL-6MTr/view?usp=sharing)  |
 | 2:30 pm   | Afternoon Break |   |   |
-| 3:00 pm   | Lists and iteration | [17_list_comprehension.ipynb](https://drive.google.com/file/d/1EJc5ew0OzFirzCcX_PwczKElLFzD1nyu/view?usp=sharing)  |   |
+| 3:00 pm   | Lists and iteration | [17_list_comprehension.ipynb](https://drive.google.com/file/d/1EJc5ew0OzFirzCcX_PwczKElLFzD1nyu/view?usp=sharing)  |  [17_list_comprehension_complete.ipynb](https://drive.google.com/file/d/1euUDBeHcGu3i0wgV9kkVrBH-SyqmZu5k/view?usp=sharing) |
 | 4:00 pm   | End |   |   |
