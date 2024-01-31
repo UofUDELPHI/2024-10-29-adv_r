@@ -48,7 +48,7 @@ subtitle: "University of Utah"
 | 1:45 pm   | The pandas library | [06_pandas_dataframes.ipynb](https://drive.google.com/file/d/17uAJb634YHSAE3UIiC6g6NPsDjfWffDh/view?usp=sharing) |    |
 | 2:30 pm   | Afternoon Break | |    |
 | 3:00 pm   | Data frame indexes | [07_index.ipynb](https://drive.google.com/file/d/199FavZjZ2Y6G1MGaGMWluT-vhuda4HB6/view?usp=sharing) |    |
-| 3:30 pm   | Pandas series | [08_series.ipynb](https://drive.google.com/file/d/1421UBQPyiqVQ_w3PRYXfeeCS96AP6L3o/view?usp=sharing) |    |
+| 3:30 pm   | Pandas series | [08_series.ipynb](https://drive.google.com/file/d/1421UBQPyiqVQ_w3PRYXfeeCS96AP6L3o/view?usp=sharing) | [08_series_complete.ipynb](https://drive.google.com/file/d/1bWqUI_SYP_PzNwCoZcluQf6Yyj7RFgXb/view?usp=sharing)   |
 | 4:00 pm   | End | |    |
 
 
