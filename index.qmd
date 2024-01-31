@@ -35,10 +35,10 @@ subtitle: "University of Utah"
 ### Day 1
 
 
-| Time     | Topic           |
-| -------------:|:-------------|
-| 9:00 am     | Introduction and Setup |
-| 9:30 am    | Variables |
+| Time     | Topic           | Incomplete notebook |  Complete notebook |
+| -------------:|:-------------|:---------------|:-----------------|
+| 9:00 am     | Introduction and Setup |   |   |
+| 9:30 am    | Variables | [01_variables.ipynb](https://drive.google.com/file/d/1pRt-Q1Wgv1JjwsjtkjXtXYQvXCRubi5O/view?usp=sharing)   |    |
 | 10:00 am   | Types |
 | 10:30 am   | Morning Break |
 | 11:00 am   | Type conversions |
