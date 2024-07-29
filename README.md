@@ -1,7 +1,7 @@
-# 2024-02-08 Introduction to Python for Data Analysis workshop
+# 2024-08-29 Introduction to R for Data Analysis workshop
 
 The workshop website can be 
-found here: https://uofudelphi.github.io/2024-02-08-python/
+found here: https://uofudelphi.github.io/2024-08-29-r/
 
 If you created a new repository, you need to set Settings > Pages > Branch settings to 'main' and '/docs/' to trigger a deployment when modifications are made on the main branch.
 
@@ -9,10 +9,3 @@ To make changes to the website, you can then make changes in the **main branch**
 
 For help publishing using GitHub pages with Quarto see: https://quarto.org/docs/publishing/github-pages.html
 
-### Content Notebooks
-
-The content notebooks in this repo have been uploaded to Google Colab, and the links provided on the webpage are "Viewer" only links. Learners will need to make a copy of the notebook to work in it. Also ensure that they have the data files when relevant. 
-
-To make changes to the notebook files, you will need to explicitly modify the version on Google Colab (modifications to the notebook files that live in this repo will *not* be reflected in the Colab version).
-
-When teaching live, make sure that you are editing the notebook files using a different Google account or using different source files to the ones linked in the schedule (otherwise you will be modifying the original blank files).
