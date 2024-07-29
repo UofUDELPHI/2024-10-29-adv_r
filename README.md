@@ -1,7 +1,7 @@
 # 2024-08-29 Introduction to R for Data Analysis workshop
 
 The workshop website can be 
-found here: https://uofudelphi.github.io/2024-08-29-r/
+found here: https://uofudelphi.github.io/2024-08-29-intro_r/
 
 If you created a new repository, you need to set Settings > Pages > Branch settings to 'main' and '/docs/' to trigger a deployment when modifications are made on the main branch.
 
