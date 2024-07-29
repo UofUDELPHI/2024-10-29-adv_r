@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Python for Data Analysis"
+title: "Introduction to R for Data Analysis"
 subtitle: "University of Utah"
 ---
 
@@ -7,67 +7,65 @@ subtitle: "University of Utah"
 
 
 ::: {.callout-note appearance="simple" icon=false}
-**Date**: February 8-9 2024
+**Date**: August 29-30 2024
 
 **Time**: 9:00 am -- 4:00 pm MDT
 
-**Location**: HELIX Rm - GS155 - Alder
+**Location**: HELIX Rm - GS150 - Chokecherry
 
-**Instructors**: Rebecca Barter, Alec Chapman
+**Instructors**: Rebecca Barter, George Vega Yon
 :::
 
-**Registration**: Use the [following link](https://docs.google.com/forms/d/e/1FAIpQLSdlt4HZmLD5xJZkFUEG1wCyjxngEtLpQZpgH0Zx_7PbmNE40Q/viewform) to sign up for this workshop.
+**Registration**: Use the [following link](???????) to sign up for this workshop.
 
 [**Sign up for the DELPHI mailing list**](https://www.lists.utah.edu/wws/subscribe/delphi?previous_action=info) to stay in the loop about future workshops and funding opportunities.
 
 ## General Information
 
-**What**: This workshop will introduce the basics of the Python programming language for data science, with a focus on working with tabular data using the **Pandas library.**
+**What**: This workshop will introduce the basics of the R programming language for data science, with a focus on the fundamentals of the R programming language, the dplyr package for manipulating data, and the ggplot2 workshop for data visualization.
 
-**Who**: The course is aimed at graduate students, postdocs, faculty, and other researchers across campus who are interested in learning how to use Python for data analysis. You don't need to have coding experience or any previous knowledge of Python to attend this workshop.
+**Who**: The course is aimed at graduate students, postdocs, staff, faculty, and other researchers across campus who are interested in learning how to use R for data analysis. You don't need to have coding experience or any previous knowledge of R to attend this workshop.
 
-**Requirements**: Participants must bring a laptop on which they can access the internet via a web browser. We will be using [Google Colab notebooks](https://colab.google/) throughout this workshop.
+**Requirements**: Participants must bring a laptop onto which they can [download R and Rstudio](https://posit.co/download/rstudio-desktop/) (and you should do so before the workshop).
 
-**Contact**: Please email penny.atkins@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information.
+**Contact**: Please email andrew.george@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information.
 
 ## Schedule
+
+Note that the schedule below serves as a guideline. The start, end, and break times are fixed, but timing for each topics covered may vary as we may go faster or slower through the content.
 
 ### Day 1
 
 
-| Time  | Topic     | Incomplete notebook |  Complete notebook |
+| Time  | Topic     | Incomplete .qmd |  Complete .qmd |
 | ----:|:----|:---------------|:-----------------|
 | 9:00   | Introduction and Setup |   |   |
-| 9:30    | Variables | [01_variables](https://colab.research.google.com/drive/1pRt-Q1Wgv1JjwsjtkjXtXYQvXCRubi5O)   | [01_variables_complete](https://colab.research.google.com/drive/1XUU2Wo0yX1Fk3OYGJOIk9ZrGmK7zXXHv)   |
-| 10:00   | Types |   [02_types](https://colab.research.google.com/drive/1HzUSyw9txQn35vQP8Ae4qXVP74QqNMud)   | [02_types_complete](https://colab.research.google.com/drive/1FAG4mmy1V1tfHqpu9uLslsV-TrWsY1qE) |
-| 10:30   | Morning Break |   |    |
-| 11:00   | Type conversions | [03_type_conversions](https://colab.research.google.com/drive/1tGbz5EP68Yeup9rhJfwD4D5WRg4DzR9o)   | [03_type_conversions_complete](https://colab.research.google.com/drive/1FDAqcOB8riVz-PGh4rH7F592mXYdUPmS)   |
-| 11:30   | Boolean operations | [04_boolean_operations](https://colab.research.google.com/drive/1swXP2ROYwKHjTMWBsawzh5upfkb5yUnI) | [04_boolean_operations_complete](https://colab.research.google.com/drive/12Fg_6Q2QKcIEJh2lz0eHzqMen7vxGfML)   |
-| 12:00  | Lunch | |    |
-| 1:00   | The numpy library | [05_numpy](https://colab.research.google.com/drive/1Ow01eU5EqfULeiX0OI2HCb3xgrR7_xNR) |    [05_numpy_complete](https://colab.research.google.com/drive/15h8O4djFO2BWY5UQiXs9DTHLpy1q3DiF) |
-| 1:45   | The pandas library | [06_pandas_dataframes](https://colab.research.google.com/drive/17uAJb634YHSAE3UIiC6g6NPsDjfWffDh) | [06_pandas_dataframes_complete](https://colab.research.google.com/drive/1P5XFsaC2hmiqPIORA4ESMTLl6KTLu7ak)   |
-| 2:30   | Afternoon Break | |    |
-| 3:00   | Data frame indexes | [07_index](https://colab.research.google.com/drive/199FavZjZ2Y6G1MGaGMWluT-vhuda4HB6) |    [07_index_complete](https://colab.research.google.com/drive/1qRL1ndgZttvLrywFYhXel2SBP5BoZAJT) |
-| 3:30   | Pandas series | [08_series](https://colab.research.google.com/drive/1421UBQPyiqVQ_w3PRYXfeeCS96AP6L3o) | [08_series_complete](https://colab.research.google.com/drive/1XYbM-05ImYA4vH3K6k7DuIRyxuyReBlw)   |
-| 4:00   | End | |    |
+| 9:30    | Introduction to RStudio and Quarto |    | |
+| 10:00   | Introduction to Coding with R |   | |
+| 10:30   | [Break] |   |    |
+| 10:45   | Variables |  |     |
+| 11:30   | Types | | |
+| 12:00  | [Lunch] | |    |
+| 1:00   | Vectors | |  |
+| 2:30   | [Break] | |    |
+| 2:45   | Packages |  |    |
+| 3:00   | Loading Data into R |  |    |
+| 3:30   | Data Frames with "Base R" |  |   |
+| 4:00   | [End] |  |    |
 
 
 
 ### Day 2
 
 
-| Time   | Topic           | Incomplete notebook | Complete notebook | 
+| Time   | Topic           | Incomplete .qmd | Complete .qmd | 
 | ----:|:----|:---------------|:-----------------|
-| 9:00    | Subsetting with `[]` and `.loc` | [09_subsetting](https://colab.research.google.com/drive/1bR-TLphPFiJGBKfTocW7_UCEVI67ZKfk)   |  [09_subsetting_complete](https://colab.research.google.com/drive/1KNZhaHk1ws4GNeRKKXDUyyjFDbSJkB9j) |
-| 9:45    | Filtering rows using logical conditioning | [10_filtering_logical](https://colab.research.google.com/drive/1vk4popl0x1boqNth0yGf8r-J_Oj6-MiM)   | [10_filtering_logical_complete](https://colab.research.google.com/drive/1kUHy0Cg2nkqACCyQrw8rzLRqEK9DT-qT)  |
-| 10:00   | Filtering rows using `.query` | [11_filtering_query](https://colab.research.google.com/drive/1U1y3qQEL6QiZQBz3xpI7W6QzLqFxMxzC)   | [11_filtering_query_complete](https://colab.research.google.com/drive/1XUbbwUzdSsePq1AMNrSggg-K-vNRBJed)  |
-| 10:15   | Positional indexing with `.iloc` | [12_iloc](https://colab.research.google.com/drive/1mEgfaZWiEQv7HAf4RSXCadtsKSN_7pp7)   | [12_iloc_complete](https://colab.research.google.com/drive/13_3IWYgSsN7ezes7xlXFPJAGqE6tsyZ9)  |
-| 10:30   | Morning Break |   |   |
-| 11:00   | Adding and dropping columns from DataFrames | [13_modifying_dataframes](https://colab.research.google.com/drive/1LRDDQZQyGwy4qzA9yur1yVW9wp97qa2y)   |  [13_modifying_dataframes_complete](https://colab.research.google.com/drive/1-vV1Yua2VwPxaWB4Jw5Z_tR6ze7fqKob) |
-| 11:30   | Computing summaries of DataFrames | [14_summarizing_dataframes](https://colab.research.google.com/drive/1As3Al76bUQDXZXzJRwHDOKRS1egatpHw)   |  [14_summarizing_dataframes_complete](https://colab.research.google.com/drive/1_iBsF1PKZQkC_qXWHH_ec4_-Btzim-c6) |
-| 12:00   | Lunch |   |   |
-| 1:00   | Grouped computations | [15_grouped_computations](https://colab.research.google.com/drive/1uNBcbw95Ltm0sawNgZQU8jSfQXZO6t9n)   |  [15_grouped_computations_complete](https://colab.research.google.com/drive/1ZTlNuU95Nmr6UwB8qLMB5zqdBshDDqHj) |
-| 1:30   | Data visualization | [16_visualization](https://colab.research.google.com/drive/1WZwYKag_1IhiPuQGXlcJ8LqcqdjEwI5c)   | [16_visualization_complete](https://colab.research.google.com/drive/1yWlEUNZ_pXg47bGxOTFwz5EydkL-6MTr)  |
-| 2:30   | Afternoon Break |   |   |
-| 3:00   | Lists and iteration | [17_list_comprehension](https://colab.research.google.com/drive/1EJc5ew0OzFirzCcX_PwczKElLFzD1nyu)  |  [17_list_comprehension_complete](https://colab.research.google.com/drive/1euUDBeHcGu3i0wgV9kkVrBH-SyqmZu5k) |
-| 4:00  | End |   |   |
+| 9:00    | Data Frames with dplyr (select and filter)  | | |
+| 10:30   | [Break] |   |   |
+| 10:45   | Data Frames with dplyr (mutate and summarize) | |  | 
+| 12:00   | [Lunch] |   |   |
+| 1:00   | Data Visualization with ggplot2  | |
+| 2:30   | [Break] |   |   |
+| 2:45   | Advanced ggplot2 |  | |
+| 3:30   | Other topics |  | |
+| 4:00  | [End] |   |   |

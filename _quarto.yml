@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Introduction to Python for Data Science"
+  title: "Introduction to R for Data Science"
   navbar:
     left:
       - href: index.qmd
