@@ -9,3 +9,4 @@ To make changes to the website, you can then make changes in the **main branch**
 
 For help publishing using GitHub pages with Quarto see: https://quarto.org/docs/publishing/github-pages.html
 
+Contact rebecca.barter@hsc.utah.edu for questions
