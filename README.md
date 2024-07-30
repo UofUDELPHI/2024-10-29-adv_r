@@ -3,7 +3,7 @@
 If cloning this repository for your own workshop, please use the naming convention "date-name" for your repo, for example 2024-10-29-adv_r
 
 The workshop website can be 
-found here: https://uofudelphi.github.io/2024-08-29-adv_r (i.e., https://uofudelphi.github.io/DATE-NAME)
+found here: https://uofudelphi.github.io/2024-10-29-adv_r (i.e., https://uofudelphi.github.io/DATE-NAME)
 
 To generate the GitHub pages website for your repository and trigger automatic deployments when changes are pushed to the repo, you need to set Settings > Pages > Branch settings to 'main' and choose '/docs/' to trigger a deployment when modifications are made on the main branch.
 
