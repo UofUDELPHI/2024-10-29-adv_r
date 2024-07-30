@@ -2,22 +2,22 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introduction to R for Data Analysis",
+    "title": "Advanced R for Data Analysis",
     "section": "",
     "text": "Registration: Use the following link to sign up for this workshop.\nSign up for the DELPHI mailing list to stay in the loop about future workshops and funding opportunities."
   },
   {
     "objectID": "index.html#general-information",
     "href": "index.html#general-information",
-    "title": "Introduction to R for Data Analysis",
+    "title": "Advanced R for Data Analysis",
     "section": "General Information",
-    "text": "General Information\nWhat: This workshop will introduce the basics of the R programming language for data science, with a focus on the fundamentals of the R programming language, the dplyr package for manipulating data, and the ggplot2 workshop for data visualization.\nWho: The course is aimed at graduate students, postdocs, staff, faculty, and other researchers across campus who are interested in learning how to use R for data analysis. You don’t need to have coding experience or any previous knowledge of R to attend this workshop.\nRequirements: Participants must bring a laptop onto which they can download R and Rstudio (and you should do so before the workshop).\nContact: Please email andrew.george@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information."
+    "text": "General Information\nWhat: This workshop will build upon the foundations covered in the Introduction to R workshop, and will introduce more advanced tools, including creating your own custom functions, iterating with purrr map functions, advanced data manipulations with dplyr, and reshaping and joining datasets in R.\nWho: The course is aimed at graduate students, postdocs, staff, faculty, and other researchers across campus who are interested in taking their R skills to the next level to learn how to conduct more sophisticated data manipulations and analysis.\nParticipants in this workshop should already be comfortable working in Quarto (or R Markdown) documents in RStudio, and have basic knowledge of the the R programming language and the tidyverse, including the dplyr select, filter, mutate, and summarize functions, as well as creating basic visualizations using ggplot2.\nRequirements: Participants must bring a laptop onto which they can download R and Rstudio (and you should do so before the workshop).\nContact: Please email andrew.george@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information."
   },
   {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
-    "title": "Introduction to R for Data Analysis",
+    "title": "Advanced R for Data Analysis",
     "section": "Schedule",
-    "text": "Schedule\nNote that the schedule below serves as a guideline. The start, end, and break times are fixed, but timing for each topics covered may vary as we may go faster or slower through the content.\n\nDay 1\n\n\n\nTime\nTopic\nIncomplete .qmd\nComplete .qmd\n\n\n\n\n9:00\nIntroduction and Setup\n\n\n\n\n9:30\nIntroduction to RStudio and Quarto\n\n\n\n\n10:00\nIntroduction to Coding with R\n\n\n\n\n10:30\n[Break]\n\n\n\n\n10:45\nVariables\n\n\n\n\n11:30\nTypes\n\n\n\n\n12:00\n[Lunch]\n\n\n\n\n1:00\nVectors\n\n\n\n\n2:30\n[Break]\n\n\n\n\n2:45\nPackages\n\n\n\n\n3:00\nLoading Data into R\n\n\n\n\n3:30\nData Frames with “Base R”\n\n\n\n\n4:00\n[End]\n\n\n\n\n\n\n\nDay 2\n\n\n\nTime\nTopic\nIncomplete .qmd\nComplete .qmd\n\n\n\n\n9:00\nData Frames with dplyr (select and filter)\n\n\n\n\n10:30\n[Break]\n\n\n\n\n10:45\nData Frames with dplyr (mutate and summarize)\n\n\n\n\n12:00\n[Lunch]\n\n\n\n\n1:00\nData Visualization with ggplot2\n\n\n\n\n2:30\n[Break]\n\n\n\n\n2:45\nAdvanced ggplot2\n\n\n\n\n3:30\nOther topics\n\n\n\n\n4:00\n[End]"
+    "text": "Schedule\nNote that the schedule below serves as a guideline. The start, end, and break times are fixed, but timing for each topics covered may vary as we may go faster or slower through the content.\n\n\n\nTime\nTopic\nIncomplete .qmd\nComplete .qmd\n\n\n\n\n9:00\nIntroduction and Setup\n\n\n\n\n9:30\nWriting Functions\n\n\n\n\n10:30\n[Break]\n\n\n\n\n10:45\nIteration with Purrr\n\n\n\n\n12:00\n[Lunch]\n\n\n\n\n1:00\nAdvanced Data Manipulations with Dplyr\n\n\n\n\n2:30\n[Break]\n\n\n\n\n2:45\nReshaping and Joining Data\n\n\n\n\n4:00\n[End]"
   }
 ]

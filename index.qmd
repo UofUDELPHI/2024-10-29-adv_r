@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R for Data Analysis"
+title: "Advanced R for Data Analysis"
 subtitle: "University of Utah"
 ---
 
@@ -7,24 +7,26 @@ subtitle: "University of Utah"
 
 
 ::: {.callout-note appearance="simple" icon=false}
-**Date**: August 29-30 2024
+**Date**: October 29 2024
 
 **Time**: 9:00 am -- 4:00 pm MDT
 
 **Location**: HELIX Rm - GS150 - Chokecherry
 
-**Instructors**: Rebecca Barter, George Vega Yon
+**Instructors**: Rebecca Barter
 :::
 
-**Registration**: Use the [following link](https://forms.gle/sNwVvgH7SHGUhjNN6) to sign up for this workshop.
+**Registration**: Use the [following link](????) to sign up for this workshop.
 
 [**Sign up for the DELPHI mailing list**](https://www.lists.utah.edu/wws/subscribe/delphi?previous_action=info) to stay in the loop about future workshops and funding opportunities.
 
 ## General Information
 
-**What**: This workshop will introduce the basics of the R programming language for data science, with a focus on the fundamentals of the R programming language, the dplyr package for manipulating data, and the ggplot2 workshop for data visualization.
+**What**: This workshop will build upon the foundations covered in the Introduction to R workshop, and will introduce more advanced tools, including creating your own custom functions, iterating with purrr map functions, advanced data manipulations with dplyr, and reshaping and joining datasets in R.
 
-**Who**: The course is aimed at graduate students, postdocs, staff, faculty, and other researchers across campus who are interested in learning how to use R for data analysis. You don't need to have coding experience or any previous knowledge of R to attend this workshop.
+**Who**: The course is aimed at graduate students, postdocs, staff, faculty, and other researchers across campus who are interested in taking their R skills to the next level to learn how to conduct more sophisticated data manipulations and analysis. 
+
+Participants in this workshop should already be comfortable working in Quarto (or R Markdown) documents in RStudio, and have basic knowledge of the the R programming language and the tidyverse, including the dplyr select, filter, mutate, and summarize functions, as well as creating basic visualizations using ggplot2.
 
 **Requirements**: Participants must bring a laptop onto which they can [download R and Rstudio](https://posit.co/download/rstudio-desktop/) (and you should do so before the workshop).
 
@@ -34,38 +36,17 @@ subtitle: "University of Utah"
 
 Note that the schedule below serves as a guideline. The start, end, and break times are fixed, but timing for each topics covered may vary as we may go faster or slower through the content.
 
-### Day 1
 
 
 | Time  | Topic     | Incomplete .qmd |  Complete .qmd |
 | ----:|:----|:---------------|:-----------------|
 | 9:00   | Introduction and Setup |   |   |
-| 9:30    | Introduction to RStudio and Quarto |    | |
-| 10:00   | Introduction to Coding with R |   | |
+| 9:30    | Writing Functions |    | |
 | 10:30   | [Break] |   |    |
-| 10:45   | Variables |  |     |
-| 11:30   | Types | | |
+| 10:45   | Iteration with Purrr |  |     |
 | 12:00  | [Lunch] | |    |
-| 1:00   | Vectors | |  |
+| 1:00   | Advanced Data Manipulations with Dplyr | |  |
 | 2:30   | [Break] | |    |
-| 2:45   | Packages |  |    |
-| 3:00   | Loading Data into R |  |    |
-| 3:30   | Data Frames with "Base R" |  |   |
+| 2:45   | Reshaping and Joining Data |  |    |
 | 4:00   | [End] |  |    |
 
-
-
-### Day 2
-
-
-| Time   | Topic           | Incomplete .qmd | Complete .qmd | 
-| ----:|:----|:---------------|:-----------------|
-| 9:00    | Data Frames with dplyr (select and filter)  | | |
-| 10:30   | [Break] |   |   |
-| 10:45   | Data Frames with dplyr (mutate and summarize) | |  | 
-| 12:00   | [Lunch] |   |   |
-| 1:00   | Data Visualization with ggplot2  | |
-| 2:30   | [Break] |   |   |
-| 2:45   | Advanced ggplot2 |  | |
-| 3:30   | Other topics |  | |
-| 4:00  | [End] |   |   |
