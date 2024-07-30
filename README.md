@@ -1,9 +1,11 @@
-# 2024-08-29 Introduction to R for Data Analysis workshop
+# 2024-10-29 Advanced R for Data Analysis workshop
+
+If cloning this repository for your own workshop, please use the naming convention "date-name" for your repo, for example 2024-10-29-adv_r
 
 The workshop website can be 
-found here: https://uofudelphi.github.io/2024-08-29-Intro_R/
+found here: https://uofudelphi.github.io/2024-08-29-adv_r (i.e., https://uofudelphi.github.io/DATE-NAME)
 
-If you created a new repository, you need to set Settings > Pages > Branch settings to 'main' and '/docs/' to trigger a deployment when modifications are made on the main branch.
+To generate the GitHub pages website for your repository and trigger automatic deployments when changes are pushed to the repo, you need to set Settings > Pages > Branch settings to 'main' and choose '/docs/' to trigger a deployment when modifications are made on the main branch.
 
 To make changes to the website, you can then make changes in the **main branch**, render your changes in your local version, and then push the changes to GitHub. The website should automatically update within a few minutes. 
 
