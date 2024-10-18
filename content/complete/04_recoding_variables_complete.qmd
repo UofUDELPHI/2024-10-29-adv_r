@@ -1,0 +1,154 @@
+---
+title: "Recoding variables using if_else and case_when"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+# load the tidyverse and demographics dataset
+library(tidyverse)
+demographics <- read_csv("data/demographics.csv")
+head(demographics)
+```
+
+
+In this document, you will learn how to "recode" variables by replacing values in a variable with other values of your choice, e.g., converting numerically-encoded variables to categorical/character versions, and vice versa. 
+
+We will introduce two functions for doing this: 
+
+- `if_else()` which can be used to create binary variables (variables with just two distinct values) based on a logical "condition"
+
+- `case_when()` which can be used to create variables with many different values.
+
+
+
+
+
+
+## if_else
+
+
+
+```{r}
+# apply count() to interview_examination
+demographics |> count(interview_examination)
+```
+
+Let's convert it to a numeric format using `if_else()`. 
+
+```{r}
+# use mutate() to create a new column called interview_examination_numeric
+# which is 2 if interview_examination is "both interview and exam"
+# and 1 otherwise
+# then select just interview_examination and interview_examination_numeric
+demographics |> 
+  mutate(interview_examination_numeric = if_else(
+    interview_examination == "both interview and exam", 
+    true = 2, 
+    false = 1)
+  ) |>
+  select(interview_examination, interview_examination_numeric)
+```
+
+
+
+
+
+
+### Exercise
+
+Use `if_else()` to create a variable called `completed_high_school`, which has the values `"yes"` if `education` is equal to at least 3, and `"no"` otherwise.
+
+A link to the documentation for the demographics data can be found [here](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.htm#DMDEDUC2).
+
+
+#### Solution
+
+Our condition is `education >= 3` and we want to replace all values for which this condition is true with `"yes"`, and all other values with `"no"`:
+
+```{r}
+demographics |> 
+  mutate(completed_high_school = if_else(
+    education >= 3, 
+    true = "yes", 
+    false = "no")) |>
+  select(education, completed_high_school) |>
+  sample_n(10)
+```
+
+
+
+
+
+
+
+
+## case_when
+
+The `case_when()` function is similar to `if_else()`, but it allows you to have an unlimited number of conditions and corresponding recoded values. 
+
+In this section we will work with the `marital_status` column of the demographics data:
+
+```{r}
+# apply count() to the marital_status column
+demographics |> count(marital_status)
+```
+
+Let's create a new variable based on `marital_status` that replaces 
+
+- `"married"` with `3`
+
+- `"living_with_partner"` with `2`
+
+- `"divorced"`, `"widowed"`, `"never_married"`, and `"separated"` with `1`
+
+```{r}
+# use mutate and case_when() to create marital_status_numeric 
+# with the values above
+demographics |> mutate(marital_status_numeric = case_when(
+  marital_status == "married" ~ 3,
+  marital_status == "living_with_partner" ~ 2,
+  marital_status %in% c("divorced", "widowed", "never_married", "separated") ~ 1)) |>
+  select(marital_status, marital_status_numeric)
+```
+
+
+
+
+
+
+
+
+## Execise
+
+Use `case_when()` to convert `born_usa` and `citizen_usa` to "yes" and "no". Bonus points: use `across()`. 
+
+
+### Solution
+
+To do this without `across()`, you can write:
+
+```{r}
+demographics |> mutate(born_usa_chr = case_when(born_usa ~ "yes",
+                                                !born_usa ~ "no"),
+                       citizen_usa_chr = case_when(citizen_usa ~ "yes",
+                                                   !citizen_usa ~ "no")) |>
+  select(born_usa, born_usa_chr, citizen_usa, citizen_usa_chr) |> 
+  sample_n(10)
+```
+
+Note that `born_usa ~ "yes"` is equivalent to `born_usa == TRUE ~ "yes"`, but the `== TRUE` is redundant because `born_usa` is itself a logical variable. Similarly, `!citizen_usa ~ "no"` is equivalent to `citizen_usa == FALSE ~ "no"`.
+
+To use `across()`, the relevant select helper is something like `ends_with("_usa")` or `contains("usa")`, and you provide a `~` before `case_when()` to start an anonymous function, and you need to replace the column name with `.` (again, you don't need the `== TRUE` for this particular example in the condition, but that's just because the columns we're applying the `case_when()` function to are logical).
+
+```{r}
+demographics |> mutate(across(ends_with("_usa"), 
+                              ~case_when(. == TRUE ~ "yes",
+                                         . == FALSE ~ "no"),
+                              .names = "{.col}_chr")) |>
+  select(contains("_usa")) |> 
+  sample_n(10)
+```
+
+

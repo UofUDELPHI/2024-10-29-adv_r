@@ -1,5 +1,59 @@
 {
   "index.qmd": {
     "index.html": "ed6935ed"
+  },
+  "content/complete/01_custom_functions_complete.qmd": {
+    "01_custom_functions_complete.html": "f3c37dc9"
+  },
+  "content/complete/03_across_complete.qmd": {
+    "03_across_complete.html": "7416a3a4"
+  },
+  "content/complete/05_pivoting_complete.qmd": {
+    "05_pivoting_complete.html": "aaa006ba"
+  },
+  "content/complete/02_iteration_purrr_complete.qmd": {
+    "02_iteration_purrr_complete.html": "3eb8856b"
+  },
+  "content/complete/detailed/02_iteration_purrr.qmd": {
+    "02_iteration_purrr.html": "f54c6b3a"
+  },
+  "content/complete/detailed/06_joining.qmd": {
+    "06_joining.html": "28d7e087"
+  },
+  "content/complete/detailed/04_recoding_variables.qmd": {
+    "04_recoding_variables.html": "eda0f0e6"
+  },
+  "content/complete/detailed/01_custom_functions.qmd": {
+    "01_custom_functions.html": "705f95cc"
+  },
+  "content/complete/detailed/03_across.qmd": {
+    "03_across.html": "ab2ea844"
+  },
+  "content/complete/detailed/05_pivoting.qmd": {
+    "05_pivoting.html": "7965cdef"
+  },
+  "content/complete/06_joining_complete.qmd": {
+    "06_joining_complete.html": "292f858e"
+  },
+  "content/complete/04_recoding_variables_complete.qmd": {
+    "04_recoding_variables_complete.html": "6232677e"
+  },
+  "content/incomplete/02_iteration_purrr.qmd": {
+    "02_iteration_purrr.html": "2e30a5a2"
+  },
+  "content/incomplete/06_joining.qmd": {
+    "06_joining.html": "13b7e829"
+  },
+  "content/incomplete/04_recoding_variables.qmd": {
+    "04_recoding_variables.html": "6901e1e7"
+  },
+  "content/incomplete/01_custom_functions.qmd": {
+    "01_custom_functions.html": "c3270d26"
+  },
+  "content/incomplete/03_across.qmd": {
+    "03_across.html": "591061c1"
+  },
+  "content/incomplete/05_pivoting.qmd": {
+    "05_pivoting.html": "e169c81c"
   }
 }

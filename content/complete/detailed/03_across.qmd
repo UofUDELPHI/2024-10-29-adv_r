@@ -1,0 +1,198 @@
+---
+title: "Across"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+In this lesson, we will introduce the `across()` function, which can be used to apply dplyr functions like mutate, summarize, select, etc to subsets of columns that satisfy certain criteria, such as to all numeric columns, or all columns that start with `age_`.
+
+We will continue working with the demographics data, so let's first load the tidyverse and load the demographics data object.
+
+
+```{r}
+library(tidyverse)
+demographics <- read_csv("data/demographics.csv")
+head(demographics)
+```
+
+
+Let's suppose that our task is to convert all character columns of the demographics data to upper-case. The function that we are trying to apply is the `toupper()` function.
+
+```{r}
+toupper("abc")
+```
+
+
+Before introducing across, let's first see one way that we could do this using the `map()` functions that we have just learned (there are often multiple ways of doing the same thing):
+
+```{r}
+# one way to convert all character columns to uppercase
+# creating a boolean/logical vector for identifying character columns
+character_cols <- map_chr(demographics, class) == "character"
+# re-assinging the character columns to an upper-case version of themselves
+demographics[character_cols] <- map_df(demographics[character_cols], toupper)
+demographics
+```
+
+While this works, it is fairly convoluted, is hard to read, and involves defining an intermediate variable (`character_cols`) -- in the tidyverse style, it is generally recommended to *avoid* defining intermediate variables whenever possible.
+
+
+Since the code above modified our demographics data, let's load it in again to revert `demographics` to the original unmodified version:
+
+```{r}
+demographics <- read_csv("data/demographics.csv")
+demographics
+```
+
+## Introducing across()
+
+We could instead do this kind of operation using a `mutate()` operation in conjunction with `across()`.
+
+First, if we were to conduct our uppercase operation for just one character column, say, `interview_examination`, then we could do this using a mutate function as follows:
+
+```{r}
+# just for the interview_examination column
+demographics |> mutate(interview_examination = toupper(interview_examination))
+```
+
+To do this for *all* character columns, you need to provide `across()` to the argument of your mutate function. The `across()` function has two arguments:
+
+- The first argument is a "select statement" that specifies which columns you want to apply your function to. Since we want to apply our `toupper` function to all character columns, we use the `where()` function to provide a logical function, which, when applied to all columns, will only output `TRUE` for the character columns, resulting in them being selected for computation. 
+
+- The second argument is the function name, `toupper`, that we want to apply to all columns that are selected as a result of the first argument.
+
+The result is that `toupper()` is applied to all columns where `is.character()` would result in `TRUE`:
+
+```{r}
+demographics |> mutate(across(where(is.character), toupper))
+```
+
+## More across examples
+
+### Add 100 to all `age_` columns
+
+Let's first look at another `mutate()` example, where this time, we want to add 100 to all columns whose name starts with `age_`.
+
+If we were to do this to just the `age_years` column, our code would look like:
+
+
+```{r}
+demographics |> mutate(age_years = age_years + 100)
+```
+
+To generalize this to all columns that start with `age_` using `across()`, we can use the `starts_with()` select helper, and apply the anonymous function `~{. + 100}`:
+
+```{r}
+demographics |> mutate(across(starts_with("age_"), ~{. + 100}))
+```
+
+### Convert `born_usa` and `citizen_usa` to numeric (binary) columns using `ends_with()`
+
+The next example involves convert `born_usa` and `citizen_usa` to numeric (binary) columns.
+
+
+```{r}
+demographics |> select(born_usa, citizen_usa)
+```
+
+
+Since both `born_usa` and `citizen_usa` end with `_usa` (and they are the only columns to do so), we can use the `ends_with()` select helper. In this case, to convert the logical `TRUE/FALSE` values to numeric `0/1` values, the function we are applying is `as.numeric()`. The code below uses `across()` to do this:
+
+```{r}
+demographics |> mutate(across(ends_with("_usa"), as.numeric)) |> 
+  print(width = Inf)
+```
+
+### Convert `born_usa` and `citizen_usa` to numeric (binary) columns using a vector of column names
+
+Suppose we had a vector of column names that we wanted to modify using `mutate()`:
+
+```{r}
+selected_cols <- c("born_usa", "citizen_usa")
+```
+
+Then we could use `all_of(selected_cols)` in `across()` to apply the function to all columns listed in the `selected_cols` vector as follows:
+
+```{r}
+demographics |> mutate(across(all_of(selected_cols), as.numeric)) |>
+  print(width = Inf)
+```
+
+We could also use `any_of(selected_cols)`:
+
+```{r}
+demographics |> mutate(across(any_of(selected_cols), as.numeric)) |>
+  print(width = Inf)
+```
+
+The difference between the two, is that when using `all_of()` all columns in `selected_cols` must be included in the data, whereas this is not necessary for `any_of()`. For example, if one of our columns in `selected_cols` did not exist, then `all_of()` would throw an error, whereas `any_of()` would not:
+
+
+```{r}
+#| error: true
+selected_cols <- c("born_usa", "citizen_usa", "abc")
+demographics |> mutate(across(all_of(selected_cols), as.numeric)) 
+```
+
+We could also use `any_of(selected_cols)`:
+
+```{r}
+demographics |> mutate(across(any_of(selected_cols), as.numeric)) 
+```
+
+## Select helpers summary
+
+So far we have seen the following "select helpers" that can be used to specify the columns inside `across()`:
+
+- `where()` -- across to all columns that satisfy a logical condition (`is.character`)
+
+- `starts_with()` and `ends_with()` -- across all columns that start or ends with a specified string
+
+- `all_of()` and `any_of()` -- across all columns whose names are contained in a character vector, where `all_of()` requires all columns in the vector be present. 
+
+Another common select helper is `contains()` which can be used to select all columns that *contain* a specified string.
+
+
+### Exercise
+
+a. For all columns that contain the word "education" (`education_youth` and `education`), add the number 5 to each value
+
+b. For all numeric columns, standardize the values by subtracting the mean and dividing by the standard deviation
+
+c. Compute the average age across all columns that start with `age_`
+
+d. Compute the total number of `TRUE` values in the `born_usa`, `citizen_usa`, and `language_english` columns
+
+
+#### Solution
+
+a. 
+
+```{r}
+demographics |> mutate(across(contains("education"), ~. + 5)) |> 
+  print(width = Inf)
+```
+
+b. 
+
+```{r}
+# standardize all numeric columns
+demographics |> mutate(across(where(is.numeric), ~{(. - mean(., na.rm = TRUE)) / sd(., na.rm = TRUE)}))
+```
+
+c. 
+
+```{r}
+# compute average age across all age columns
+demographics |> summarize(across(starts_with("age"), ~mean(., na.rm = TRUE)))
+```
+
+d. 
+
+```{r}
+# compute the total in the `born_usa`, `citizen_usa`, and `language_english`
+demographics |> summarise(across(any_of(c("born_usa", "citizen_usa", "language_english")), 
+                                 ~sum(., na.rm = TRUE)))
+```
+

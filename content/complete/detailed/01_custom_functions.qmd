@@ -1,0 +1,667 @@
+---
+title: "Custom functions"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+## A simple custom function
+
+In this notebook, you will learn how to define your own functions. 
+
+We will start with a very simple function, that we will call `add_one()`, which will add 1 to any value it is given. 
+
+The simplest way to define `add_one()` is 
+
+```{r}
+add_one <- function(x) {
+  x + 1
+}
+```
+
+The code that is run when you "call" your function is shown inside the curly parentheses. To "call" a function is to write the name of the function, followed by some parentheses inside which you provide a value for your argument, such as:
+
+```{r}
+add_one(5)
+```
+
+What is happening when you call `add_one(5)` is that `x` is temporarily being assigned the value `5`, and then the code inside the curly parentheses `x + 1` is run, with the result being returned as the output of the function. 
+
+
+Note that by default, any custom R function you create will automatically return the final result that is computed. So for example, if your function contains multiple computations that would have output, such as the version below, when you call `add_one(5)`, you will only see the final computed result (i.e., you will see the output of `x + 1` but not `x - 1`.
+
+
+```{r}
+add_one <- function(x) {
+  x - 1
+  x + 1
+}
+```
+
+```{r}
+add_one(5)
+```
+
+
+
+For this reason, it is common to explicitly provide a "return statement", which specifies what you want the output of your function to be. In the example below, we explicitly specify that we want the output of `add_one()` to be the output of the first computation `x - 1`, rather than the second one, `x + 1`.
+
+```{r}
+add_one <- function(x) {
+  return(x - 1)
+  x + 1
+}
+```
+
+```{r}
+add_one(5)
+```
+
+
+## The general syntax of a custom function
+
+The general syntax of a custom function is shown below:
+
+```{r}
+#| eval: false
+fn_name <- function(arg) {
+  # code involve arg
+  return(object)
+}
+```
+
+
+
+
+## Exercise
+
+Write a function called "cube" that returns the cubic of the argument  
+
+
+```{r}
+cube <- function(value) {
+  cubed_value = value^3
+  return(cubed_value)
+}
+```
+
+```{r}
+cube(value = 3)
+```
+
+
+
+## Multiple arguments
+
+To create a function with multiple arguments, you need to provide two arguments inside the function definition, separated by a comma. The function below has two arguments: `x` and `y`:
+
+```{r}
+add_xy <- function(x, y) {
+  x + 2*y
+}
+```
+
+When you call this `add_xy()`, you can then specify a value for each argument, separated by a comma:
+
+```{r}
+add_xy(2, 5)
+```
+
+When you have multiple arguments, funny things can start to happen when you don't name your arguments. 
+
+What do you think will happen if you *first* provide a named argument for the *second* argument `y` by specifying `y = 2`, and then provide an unnamed argument afterwards?
+
+```{r}
+add_xy(y = 2, 5)
+```
+
+R will be clever and it will first apply the named arguments by assigning `y` to the value 2, and then it will start at the beginning of the argument list and fill in the remaining argument, so `x` will be assigned to the value `5`.
+
+However, so that your code is easy to read and you don't have to remember which arguments appear in which order, it is good practice to always name your arguments.
+
+```{r}
+add_xy(x = 2, y = 5)
+```
+
+Note that when you provide named arguments, it technically doesn't matter which order you provide them in (but this is *not* true when you don't provide named arguments!)
+
+
+```{r}
+add_xy(y = 5, x = 2)
+```
+
+
+Again, note that even when you provide named arguments in a function call (e.g., in `add_xy(y = 5, x = 2)`), you are *not* defining a global version of the arguments, i.e., there is no `y` defined:
+
+```{r}
+#| error: true
+y
+```
+
+Before we move on, what do you think will happen when you call `add_xy()` without any arguments inside the parentheses?
+
+
+```{r}
+#| error: true
+add_xy()
+```
+
+You get an error, because we haven't specified any *default values* for the arguments which the function will use when an argument is not provided.
+
+### Default values
+
+
+To provide *default* values for your arguments, you can assign the argument inside the function definition. In the example below, both `x` and `y` are given the default values of 1.
+
+```{r}
+add_xy <- function(x = 1, y = 1) {
+  x + 2*y
+}
+```
+
+Now if we run `add_xy()` without any arguments, we don't get an error! We get the same thing that we would have got if we had run `add_xy(x = 1, y = 1)`.
+
+```{r}
+add_xy()
+```
+
+What do you think will happen if we run `add_xy(4)`?
+
+```{r}
+add_xy(4)
+```
+
+What happens is that the value `4` is assigned to the *first* argument, `x`, and the argument `y` is assigned it's default value of `1`.
+
+
+Similarly, if you provide a value for the argument `y`, the default value for `x` will be used:
+
+```{r}
+add_xy(y = 3)
+```
+
+
+
+### Exercise
+
+
+Without using the `mean()` function, write a function called `my_mean()` that takes four values as its arguments and computes their mean. Ensure that each argument has a default of 0. Use your function to compute the mean of the values 4, 5, 2, 1.
+
+
+#### Solution
+
+```{r}
+my_mean <- function(a = 0, b = 0, c = 0, d = 0) {
+  return((a + b + c + d) / 4)
+}
+```
+
+Note that when we run this function it is taking four separate arguments (rather than a vector, as the original mean function does):
+
+```{r}
+my_mean(4, 5, 2, 1)
+```
+
+You can define a function that instead takes a single vector as its argument:
+
+```{r}
+my_mean_vec <- function(vec) {
+  return(sum(vec) / length(vec))
+}
+```
+
+and then to run this function, you provide a vector by wrapping the four values inside `c()`:
+
+```{r}
+my_mean_vec(c(4, 5, 2, 1))
+```
+
+What happens if you apply your original `my_mean()` function to this vector?
+
+```{r}
+my_mean(c(4, 5, 2, 1))
+```
+
+This is equivalent to assigning the argument `a = c(4, 5, 2, 1)`, and then not providing any values for the `b`, `c`, and `d` arguments (so their default values are used). So the above code is equivalent to:
+
+```{r}
+# (a + b + c + d) / 4
+
+(c(4, 5, 2, 1) + 0 + 0 + 0) / 4
+```
+
+The fact that we haven't told any of our functions what type of object the arguments should be means that the function will simply take whatever object it is given and try and run the code. In the next lesson, you will learn how to specify options for arguments using if/else statements and by providing several argument defaults. 
+
+
+ 
+## If/else statements
+
+First, let's explain what an if statement and an if/else statement is. 
+
+### If statements
+
+Let's start with a stand-alone "if" statement.
+
+The following code defines a variable `a`, and then runs some *conditional* code that is only run if the condition `a == 1` is `TRUE`. In this case, since `a` contains the value `5`, the condition `a == 1` is `FALSE`, and so the code `"a is 1"` is not run.
+
+```{r}
+a <- 5
+
+if (a == 1) {
+  "a is 1"
+}
+
+```
+
+
+If instead, we assign `a` to `1`, then the code `"a is 1"` will be run:
+
+
+```{r}
+a <- 1
+
+if (a == 1) {
+  "a is 1"
+}
+```
+
+There is nothing special about the string value provided, it is just a simple piece of code. We could instead just run code containing a numeric value:
+
+```{r}
+a <- 1
+
+if (a == 1) {
+  3
+}
+```
+
+
+Or even define a variable inside our "if" statement:
+
+
+```{r}
+a <- 1
+
+if (a == 1) {
+  y <- 3
+}
+```
+
+Note that unlike for a function, this variable will have been defined in our "global" environment.
+
+```{r}
+y
+```
+
+
+### Else statemenets
+
+While you can use a stand-alone "if" statement, you can also provide an "else" statement. The "else" part of the "if/else" statement provides some code that will be run if the "if" condition is *not* `TRUE`. For example, the following code will first ask if `a` equals 1, and if so, will assign `y <- 3`. If not, the statement will not run the `y <- 3` code and will instead assign `y <- 9`:
+
+```{r}
+a <- 3
+if (a == 1) {
+  # if condition is true, run the following:
+  y <- 3
+} else {
+  # if condition is not true, run the following:
+  y <- 9
+}
+```
+
+```{r}
+# check what y was assigned to
+y
+```
+
+
+
+### Using "if" statements to provide custom errors when inappropriate arguments are provided 
+
+The following uses an "if" statement to add a "stop condition" that throws an error when the argument `a` is either non-numeric or does not have a length of 1:
+
+```{r}
+my_mean <- function(a = 0, b = 0, c = 0, d = 0) {
+  if (!is.numeric(a) | (length(a) != 1)) {
+    stop("'a' must be a numeric value of length 1")
+  }
+  
+  return((a + b + c + d) / 4)
+}
+```
+
+
+
+### Exercise 
+
+
+1. Use an if/else statement that checks whether the value in a variable called `age` is at least 18. If so, your statement should return the character value of "You are eligible to vote" and if not, your statement should return "You are not eligible to vote"
+
+
+```{r}
+age <- 21
+if (age >= 18) {
+  "You are eligible to vote"
+} else {
+  "You are not eligible to vote"
+}
+```
+
+
+2. Write a function that computes the area of a circle (`area = pi * radius^2`) given the radius as its argument and throws an error if a non-numeric or a negative radius value is given.
+
+```{r}
+circle_area <- function(radius) {
+  if (!is.numeric(radius) | radius < 0) {
+    stop("'radius' must be a non-negative numeric value")
+  }
+  area <- pi * radius^2
+  return(area)
+}
+```
+
+```{r}
+#| error: true
+# the following should throw an error:
+circle_area("4")
+circle_area(-4)
+```
+
+
+
+## Default argument options
+
+```{r}
+add_xy <- function(x = 1, y = 1, output_type = c("numeric", "character")) {
+  # this line will set the default value of output_type to be "numeric"
+  # and will only allow options provided in the default vector
+  output_type <- match.arg(output_type)
+  
+  # stop condition if x or y are not numeric
+  if (!is.numeric(x) | !is.numeric(y)) {
+    stop("'x' and 'y' must be numeric")
+  }
+  
+  # computing my result
+  result <- x + 2 * y
+  
+  # returning result in the format specified by output_type
+  if (output_type == "numeric") {
+    return(result)
+  } else if (output_type == "character") {
+    return(as.character(result))
+  }
+  
+}
+```
+
+```{r}
+add_xy(x = 2, y = 3, output_type = "character")
+```
+
+```{r}
+add_xy(2, 3)
+```
+
+```{r}
+#| error: true
+add_xy(2, 3, output_type = "charcter")
+```
+
+
+### Exercise
+
+Write a function called `calculate_area()` that will calculate the area of the shape specified in the argument `shape`, which has options "circle", "square", and "triangle". Your function will need to have the following additional arguments: 
+
+- `radius` for computing the area of a circle (pi * radius^2), 
+
+- `side` for computing the area of a square (side^2), 
+
+- `base` and `height` for computing the area of a triangle (height * base / 2). 
+
+Recall that arguments that are not *always* required should have a default value. Your function should throw an error when you fail to provide the arguments that are needed for the value specified in the `shape` argument.
+
+
+```{r}
+calculate_area <- function(shape = c("circle", "square", "triangle"),
+                           radius = NA,
+                           side = NA,
+                           base = NA,
+                           height = NA) {
+  shape = match.arg(shape)
+  # error statements
+  if (shape == "circle" & is.na(radius)) {
+    stop("'radius' required for 'circle' shape")
+  } 
+  if (shape == "square" & is.na(side)) {
+    stop("'side' required for 'square' shape")
+  }
+  if (shape == "triangle" & (is.na(base) | is.na(height))) {
+    stop("'base' and 'height' required for 'triangle' shape")
+  }
+  
+  # compute the area
+  if (shape == "circle") {
+    area <- pi * radius^2
+  } else if (shape == "square") {
+    area <- side^2
+  } else if (shape == "triangle") {
+    area <- base * height / 2
+  }
+  
+  return(area)
+  
+}
+```
+
+
+
+## Tidy evaluation for writing tidyverse-style functions
+
+Sometimes you want to write a function whose argument is a column of a data frame without quotes (i.e., in the tidyverse style) so that you can use it in a tidyverse function. Unfortunately this is more complicated than it should be, but in this lesson, you'll learn how to implement "tidy evaluation" so that your function can take tidyverse-style column-name arguments to use in tidyverse functions.
+
+First, we have to load in the tidyverse. And we will also load in the demographics data file from the NHANES study. You will need to make sure that your data/ folder and demographics.csv file are saved in the same location as this quarto document, and that your working directory is appropriate (if not, you can choose Session > Set Working Directory > To Source File Location). If you're using a project, then your working directory should already be set to the correct location.
+
+```{r}
+library(tidyverse)
+demographics <- read_csv("data/demographics.csv")
+```
+
+```{r}
+head(demographics)
+```
+
+So a reminder of the kinds of things we will often do within the tidyverse is creating figures, such as boxplots, using ggplot2 based on a data frame. Notice that when we refer to the variables from our data frame in the context of the tidyverse (including ggplot2), we do *not* use quotes around the column names:
+
+
+```{r}
+demographics |> ggplot() +
+  geom_boxplot(aes(x = served_active_duty_us,
+                   y = age_years))
+```
+
+Here is another example using a different variable from the data (`language_english`), where we also add a "classic" theme, and some custom axis labels.
+
+```{r}
+demographics |> ggplot() +
+  geom_boxplot(aes(x = language_english,
+                   y = age_years)) + 
+  theme_classic() +
+  labs(x = "English language",
+       y = "Age (years)")
+```
+
+Let's try and turn this into a function so we can create boxplots comparing the age distribution across all of the levels of any categorical varaible in our data that we like without having to copy-and-paste the code over and over again.
+
+In this first attempt, we use `variable_name` as the argument:
+
+```{r}
+createBoxplots <- function(variable_name) {
+  demographics |> ggplot() +
+    geom_boxplot(aes(x = variable_name,
+                     y = age_years)) 
+}
+```
+
+But this yields an error where R claims that it doesn't know what `language_english` is. Which to be fair, since it isn't the name of a variable in our space, it doesn't!
+
+```{r} 
+#| error: true
+createBoxplots(language_english)
+```
+
+We can try and run it with a character/string verion of the column name by wrapping it in quotes, but then we just get one boxplot for the string value `"language_english"`, which ggplot doesn't know is supposed to be a column from our data.
+
+```{r} 
+createBoxplots("language_english")
+```
+
+The issue is that ggplot wants us to refer to the column names without strings, but our custom function doesn't know how to find our column name variable that we provide. 
+
+Fortunately, there is an easy fix, which involves something called "tidy evaluation", which involves wrapping the argument inside two sets of curly parentheses inside the body of our function, which indicates to R that this argument should be used in the tidyverse style, without quotes:
+
+```{r}
+createBoxplots <- function(variable_name) {
+  demographics |> ggplot() +
+    geom_boxplot(aes(x = {{ variable_name }},
+                     y = age_years)) 
+}
+```
+
+And now it works:
+
+```{r}
+createBoxplots(language_english)
+```
+
+
+Let's use our function on a few different columns to make sure:
+
+```{r}
+createBoxplots(marital_status)
+```
+
+Notice that in the marital status plot, the x-axis tick labels are all smooshed into eachother. We deal with this by adding a theme layer to our plot which modifies the properties of the `axis.text.x` theme element. We can add this either to output of `createBoxplots()` (which outputs a ggplot2 object itself):
+
+```{r}
+createBoxplots(marital_status) + 
+  theme(axis.text.x = element_text(angle = 90, 
+                                   hjust = 1, 
+                                   vjust = 0.5))
+```
+
+Or we can apply it to all plots created with our `createBoxplot()` function by including it in the function body:
+
+```{r}
+createBoxplots <- function(variable_name) {
+  demographics |> ggplot() +
+    geom_boxplot(aes(x = {{ variable_name }},
+                     y = age_years)) + 
+    theme_classic() +
+    theme(axis.text.x = element_text(angle = 90, 
+                                   hjust = 1, 
+                                   vjust = 0.5))
+}
+```
+
+
+```{r}
+# now this version will have the 90-degree axis text
+createBoxplots(marital_status) 
+```
+
+
+#### Adding labels using column variable names
+
+Sometimes you want to take the name of the column name that you are providing in the argument and use the actual text from the column name to create a nice label. The last line in the version of our function below converts the `variable_name` to a text-based object and uses the `str_replace` function from the tidyverse to replace the underscore with a space:
+
+```{r}
+createBoxplots <- function(variable_name) {
+  demographics |> ggplot() +
+    geom_boxplot(aes(x = {{ variable_name }},
+                     y = age_years)) + 
+    theme_classic() +
+    theme(axis.text.x = element_text(angle = 90, 
+                                   hjust = 1, 
+                                   vjust = 0.5)) +
+    labs(x = str_replace(as_label(enquo(variable_name)), "_", " "),
+         y = "Age (years)") 
+}
+```
+
+
+```{r}
+createBoxplots(marital_status)
+```
+
+#### Tip: Using patchwork to patch together plots
+
+The patchwork library can be used to create custom grids of ggplot objects (be sure to expand your plot window if the plots aren't showing up properly):
+
+```{r}
+library(patchwork)
+createBoxplots(language_english) + createBoxplots(marital_status)
+```
+
+```{r}
+(createBoxplots(language_english) + createBoxplots(marital_status)) / createBoxplots(pregnant)  
+```
+
+
+### Exercise
+
+Create a function called createOrderedBars() that takes a categorical column from `demographics` as its argument and creates a bar chart for the average age for each level of the variable. 
+
+Challenge mode: Arrange the bars in ascending order, and provide an argument called `ascending` that allows the user to specify whether or not the bars will be arranged in ascending order.
+
+
+
+#### Solution
+
+Note that you'll want to use `geom_col()` instead of `geom_bar()` to create bar charts where the bars have the specific height provided in the y-variable. 
+
+```{r}
+createOrderedBars <- function(variable_name) {
+  demographics |> 
+    # group by the column provided
+    group_by({{ variable_name }}) |>
+    # compute the mean age
+    summarize(mean_age = mean(age_years)) |>
+  # create the bar plot
+    ggplot() +
+    geom_col(aes(x = {{ variable_name }}, 
+                y = mean_age))
+}
+```
+
+```{r}
+createOrderedBars(marital_status)
+```
+
+#### Challenge solution
+
+To arrange the bars in ascending order of `mean_age`, you first need to convert the categorical variable itself to a factor whose levels are in the order that you want the bars to appear. You can do this by arranging the rows of your data frame in order of `mean_age` and then using `fct_inorder()` to convert your variable to a factor with levels match the increasing order of `mean_age`.
+
+```{r}
+createOrderedBars <- function(variable_name) {
+  demographics |> 
+    # group by the column provided
+    group_by({{ variable_name }}) |>
+    # compute the mean age
+    summarize(mean_age = mean(age_years)) |>
+
+    # OPTIONAL CODE FOR CHALLENGE MODE:
+    # arrange in increasing order of mean_age 
+    arrange(mean_age) |>
+    # modify selected_variable so that it is a factor whose levels are in 
+    # increasing order of mean_age  
+    mutate(selected_variable = fct_inorder({{ variable_name }})) |>
+    
+  # create the bar plot
+    ggplot() +
+    geom_col(aes(x = selected_variable, 
+                y = mean_age))
+}
+```
+
+

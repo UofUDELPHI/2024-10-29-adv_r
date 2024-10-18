@@ -38,15 +38,17 @@ Note that the schedule below serves as a guideline. The start, end, and break ti
 
 
 
-| Time  | Topic     | Incomplete .qmd |  Complete .qmd |
-| ----:|:----|:---------------|:-----------------|
-| 9:00   | Introduction and Setup |   |   |
-| 9:30    | Writing Functions |    | |
-| 10:30   | [Break] |   |    |
-| 10:45   | Iteration with Purrr |  |     |
-| 12:00  | [Lunch] | |    |
-| 1:00   | Advanced Data Manipulations with Dplyr | |  |
-| 2:30   | [Break] | |    |
-| 2:45   | Reshaping and Joining Data |  |    |
-| 4:00   | [End] |  |    |
+| Time  | Topic     | 
+| ----:|:----|
+| 9:00   | Introduction and Setup |   
+| 9:30    | [Writing Functions](content/complete/01_custom_functions_complete.html) | [Writing Functions]   | 
+| 10:30   | [Break] |   
+| 10:45   | [Iteration with Purrr](content/complete/02_iteration_purrr_complete.html) |     
+| 12:00  | [Lunch] | 
+| 1:00   | [Across()](content/complete/03_across_complete.html) |
+| 1:45   | [Recoding variables](content/complete/04_recoding_variables_complete.html)| 
+| 2:30   | [Break] |
+| 2:45   | [Reshaping Data](content/complete/05_pivoting_complete.html) |     
+| 3:15   | [Joining Data](content/complete/06_joining_complete.html) |  
+| 4:00   | [End] |  
 

@@ -1,0 +1,289 @@
+---
+title: "Iteration with purrr"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+The purpose of this lesson is to learn how to iteratively apply functions to all elements contained within an object, such as all columns in a data frame, or all entries in a vector.
+
+
+Since we will be continuing with the demographics NHANES data we were using previously, we will first need to load in that dataset. To do that, we will also need to load the tidyverse library.
+
+Note that the "purrr" R package that we will be using in this lesson is *included* in the tidyverse package, so that it it not necessary to also load the purrr package separately.
+
+```{r}
+library(tidyverse)
+#library(purrr)
+demographics <- read_csv("data/demographics.csv")
+```
+
+
+To start with, the function that we want to iterate first is the `n_distinct()` function from the tidyverse. 
+
+Recall that to pull up the help page for a function, you can use the following syntax:
+
+```{r}
+?n_distinct
+```
+
+`n_distinct()` counts the number of unique values in a vector. For example, if we want to apply `n_distinct()` to count the number of unique values in the `gender` column from the `demographics` data frame, we can first extract it as a vector using `demographics$gender` and then apply `n_distinct()` to it:
+
+```{r}
+n_distinct(demographics$gender)
+```
+
+What if we want to do this simultaneously to all columns. Rather than repeating our code above over and over again, we can instead use the `map()` function. 
+
+The `map()` function takes two arguments. The first is the object whose elements that we want to iterate over and the second is the function that we want to apply to each element in our object. 
+
+When our object is a data frame, the elements being iterated over are the *columns* of the data frame.
+
+The code below uses the `map()` function to apply `n_distinct()` to every column of the `demographics` data frame simultanesouly:
+
+```{r}
+map(demographics, n_distinct)
+```
+
+
+The output of the `map()` function is a list (more on that in a moment).
+
+The following code shows another example, this time applying the `exp()` function to all entries/elements in a simple numeric vector:
+
+```{r}
+map(c(4, 5, 6), exp)
+```
+
+
+Again, the output of the `map()` function is a list.
+
+### Lists
+
+
+Let's talk about lists. Lists, like vectors, correspond to a collection of values contained in a single object. 
+
+You can use the `list()` function to define a list, for example:
+
+```{r}
+my_list <- list(1, 4, 7)
+```
+
+You can extract elements from a list just as you would from a vector, using the square bracket notation. The code below extracts the third element from `my_list`:
+
+```{r}
+my_list[3]
+```
+
+However, note that the output above is also a list itself.
+
+If you want to extract the actual object/value contained within the third element of the list, then you need to use double square parentheses:
+
+```{r}
+my_list[[3]]
+```
+
+Note that unlike vectors, lists are not vectorized. This means that you cannot conduct operations like adding 1 to a list. For a vector, this would add 1 to each element of the vector. But for a list, you just get an error:
+
+```{r}
+#| error: true
+my_list + 1
+```
+
+Why would we ever prefer lists to vectors? The reason is that lists are infinitely more flexible than vectors. While all entries in a vector must be a *single value* of the *same type*, entries of a list can be anything. 
+
+For example, the code below creates a list that contains three entries: the head of the `demographics` data frame, the value 2, and a vector of the character values "a" and "b":
+
+```{r}
+my_complex_list <- list(head(demographics), 2, c("a", "b"))
+my_complex_list
+```
+
+You can also create a *named* list when defining it as if you are defining argument names:
+
+```{r}
+my_complex_list <- list(data = head(demographics), value = 2, vector = c("a", "b"))
+my_complex_list
+```
+
+
+### Exercise
+
+Use `map()` and `class()` to identify the type/class of each column in the demographics dataset, and extract the class of the `household_income` column.
+
+#### Solution
+
+```{r}
+demographics_class <- map(demographics, class)
+```
+
+The `household_income` is the last column in the `demographics` data frame. There are several ways to extract it's class from the `demographics_class` list object.
+
+First is using numeric positional indexing inside square parentheses. Tip: You can use `ncol(demographics)` to extract the final column without having to actually know what integer position the final column corresponds to:
+
+```{r}
+demographics_class[ncol(demographics)]
+demographics_class[19]
+```
+
+You can also use named indexing, by providing the list element name as a *character* inside one or two square parentheses (depending if you want the output to be a list of length 1 or just the value contained in the list element):
+
+```{r}
+demographics_class[["household_income"]]
+```
+
+And you can also use the `$` syntax with the list element name (without quotes).
+
+```{r}
+demographics_class$household_income
+```
+
+
+Note that these are the same techniques that you can use for extracting a column from a data frame. This is because a data frame is actually a special case of a list, where each element of the list is a vector corresponding to each column, and each of the vectors have the same length.
+
+
+
+
+
+## Using custom functions in purrr
+
+
+To iterate using your own custom functions in a purrr `map()` function, you can define your function and provide it in the second argument of `map()`. For example, below, we define the `exp_plus_one()` function, and we then apply this function iteratively to each of the values in the vector `c(1, 4, 5)` using `map()`:
+
+```{r}
+
+exp_plus_one <- function(x) {
+  return(exp(x) + 1)
+}
+
+map(c(1, 4, 5), exp_plus_one)
+```
+
+However, for simple functions like this one (e.g., functions that only involve a single line of code which is also the return statement), there is a shortcut that we can use which involves defining the function "on the fly" in the function argument of the `map()` function itself. 
+
+The code below does the same thing as the code in the previous chunk, but it doesn't give the function a name. A temporary function defined inside an argument this way is called an *"anonymous function"*:
+
+```{r}
+map(c(1, 4, 5), function(x) exp(x) + 1)
+```
+
+However, we can go one step further and forego the `function(x)` part entirely using what I call the "tilde-dot" shorthand syntax. Here, we use the tilde `~` symbol to "start" an anonymous function and we use a `.` to represent the argument of our anonymous function. The code below uses the tilde-dot shorthand syntax which is equivalent to the code in each of the chunks above, but is significantly more succinct.
+
+```{r}
+# tilde-dot syntax
+map(c(1, 4, 5), ~{exp(.) + 1})
+```
+
+As another example of this shorthand syntax, we can use it to count the number of missing values in each column of the demographics data (which is defined/loaded in the first code chunk of this document). 
+
+To decide what should go inside the `~{}`, I typically use a representative value to test out my code first. For example, below, I take a single column `demographics$pregnant`, and I write out the code that I want to apply to it:
+
+```{r}
+sum(is.na(demographics$pregnant))
+```
+
+Then I take this code and place it inside the body of `~{}` and replace the test column `demographics$pregnant` with a `.` to apply this code to *every* column:
+
+```{r}
+map(demographics, ~{sum(is.na(.))})
+```
+
+### Exercise 
+
+Use the tilde-dot short-hand syntax to compute the number of values in each column that is equal to 1. Recall that if a vector has missing values, and you want to use `sum()`, you will want to provide an argument `na.rm = TRUE` to ignore missing values.
+
+#### Solution
+
+First, the code below does the long-form version which defines a function and then provides that function in the second argument of the `map()` function:
+
+```{r}
+add_ones <- function(x) {
+  sum(x == 1, na.rm = TRUE)
+}
+
+map(demographics, add_ones)
+```
+
+Then I make this more concise by taking the body of my `add_ones()` function above, and placing it inside `~{}`, and replace the `x` argument with a `.`:
+
+```{r}
+map(demographics, ~{sum(. == 1, na.rm = TRUE)})
+```
+
+
+
+
+
+## Alternative map functions for outputting doubles, characters and data frames
+
+Let's explore some alternative map functions that have different output types (i.e., they do not output a list). 
+
+Recall our `map()` function previously that we used to count the number of missing values in each column of the demographics data.
+
+```{r}
+map(demographics, ~sum(is.na(.)))
+```
+
+It turns out that a list may not be the most useful format for this information. For instance, perhaps it would be more helpful to create a numeric vector instead. 
+
+### Outputting numeric vectors
+
+The `map_dbl()` function will output a "double" vector, where a double is a type of numeric value. Below, is the same code from above, but using `map_dbl()` outputs a *named* numeric/double vector, instead of a list (where the name of each element is inherited from the column names of the original data frame).
+
+```{r}
+map_dbl(demographics, ~sum(is.na(.)))
+```
+
+
+### Outputting character vectors
+
+If you are applying a function whose output is a character value (not a numeric value), such as `class()`, then you can use the `map_chr()` function to output a named *character* vector instead.
+
+```{r}
+map_chr(demographics, class)
+```
+
+
+### Outputting data frames
+
+One of the most versatile functions is the `map_df()` function, which outputs a data frame. The code below outputs the class of each column in a "wide" single-row data frame, where each column in the original data frame has its own column in the output here. 
+
+
+
+```{r}
+map_df(demographics, class)
+```
+
+Note that if you want your output to be in a "long" format, where you have one column for the output of your function, you need to have the function you are applying output a single-column tibble/data frame, and these values will then be stacked vertically as you iterate. 
+
+```{r}
+map_df(demographics, ~tibble(col_class = class(.)))
+```
+
+
+You can provide an `.id` argument to include the original column names as a variable in the output data frame too:
+
+```{r}
+map_df(demographics, ~tibble(col_class = class(.)), .id = "variable_name")
+```
+
+### Example
+
+This long-format is very useful if you want to create a plot, such as a bar chart for the number of missing values (recall that you will need to convert the `variable_name` column to a factor whose levels are in the order you want them to appear in your plot and you can add theme layers to customize the output of your plot).
+
+```{r}
+map_df(demographics, 
+       ~tibble(n_missing = sum(is.na(.))), 
+       .id = "variable_name") |>
+  arrange(n_missing) |>
+  mutate(variable_name = fct_inorder(variable_name)) |>
+  ggplot() +
+  geom_col(aes(x = variable_name, y = n_missing)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90, 
+                                   hjust = 1,
+                                   vjust = 0.5))
+```
+
+
+

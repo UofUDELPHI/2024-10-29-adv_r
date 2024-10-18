@@ -1,0 +1,185 @@
+---
+title: "Joining Data Together"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+This lesson introduces techniques for "joining" multiple data tables together using a "key" variable
+
+A really helpful resource for learning about joins is the [R for Data Science](https://r4ds.had.co.nz/index.html) book (specifically the chapter about ["Relational Data"](https://r4ds.had.co.nz/relational-data.html)).
+
+At the end of this lesson we will have created a *single* data frame that contains the information from both the `demographics` data and the urine albumin and creatinine `labs` data.
+
+```{r}
+# load the tidyverse, the demographics, and the urine_albumin_creatinine data
+library(tidyverse)
+demographics <- read_csv("data/demographics.csv")
+labs <- read_csv("data/urine_albumin_creatinine.csv")
+```
+
+## Determining what kind of join to do
+
+There are four kinds of joins that you might want to use for combining two tables into a single table:
+
+![Diagram of joins](figures/joins.png)
+
+-   An **inner join**, which will keep only the data for the observational units that appear in both tables
+
+-   A **left join**, which will keep all of the data for the observational units in the first (left) table, and will add missing values when there is no available data in the second table.
+
+-   A **right join**, which will keep all of the data for the observational units in the second (right) table, and will add missing values when there is no available data in the first table.
+
+-   A **full join**, which will keep all of the data for the observational units in both the first (left) table, and will add missing values when there is no available data in the other table.
+
+The kind of join that you will implement will depend on what you want to use your joined data for.
+
+
+
+### Checking the uniqueness of the key ID variables
+
+Below, we see that the `respondent_id` column is indeed unique for `demographics`:
+
+```{r}
+# check whether the respondent ID values in demographics are unique?
+identical(unique(demographics$respondent_id), demographics$respondent_id)
+```
+
+But not for `labs`:
+
+```{r}
+# check whether the respondent ID values in labs are unique?
+identical(unique(labs$respondent_id), labs$respondent_id)
+```
+
+
+
+
+
+
+
+### Checking overlap between tables
+
+
+*Are there any observations in the demographics table that do not appear in the labs table?*
+
+```{r}
+# Compute the proportion of people in demographics who are also in labs
+sum(unique(demographics$respondent_id) %in% unique(labs$respondent_id)) / n_distinct(demographics$respondent_id)
+```
+
+The calculation above shows that around 81% of observations in the demographics table have available labs data.
+
+
+
+
+
+*Are there any observations in the labs table that do not appear in the demographics table?*
+
+```{r}
+# proportion of people in labs who are also in demographics
+sum(unique(labs$respondent_id) %in% unique(demographics$respondent_id)) / n_distinct(labs$respondent_id)
+```
+
+The calculation above shows that 100% of observations in the labs table have available demographics data.
+
+
+
+
+
+
+
+
+
+
+## Joining demographics and labs
+
+Our two options for to join demographics (left) and labs (right) are:
+
+-   An inner or right join will only keep the 81% of people in demographics who have available labs data
+
+-   A left or full join will keep all people in demographics data, and join missing values for those who don't have labs data available
+
+Since we don't want to discard any data, we will choose the left/full join.
+
+
+```{r}
+# perform a left/full join of demographics and labs
+print(left_join(demographics, labs, by = "respondent_id"), width = Inf)
+print(full_join(demographics, labs, by = "respondent_id"), width = Inf)
+```
+
+Look at the results above, does something look wrong to you?
+
+
+
+
+
+
+
+
+
+
+
+
+
+**If your key ID variable has repeated values, your joined data will too**.
+
+A good check after completing a join is to make sure that the number of rows in the resulting joined data matches what you expect
+
+
+```{r}
+# check the number of rows in the joined data
+nrow(left_join(demographics, labs, by = "respondent_id"))
+# check the number of rows in demographics
+nrow(demographics)
+```
+
+
+
+
+
+
+
+Therefore, to ensure that we have just one row per observational unit (i.e., per `respondent_id` value), we need to join the wide-format `labs_wide` data instead of the long-format `labs` data.
+
+```{r}
+# compute the wide format of the labs data
+labs_wide <- labs |> 
+  pivot_wider(names_from = "lab", 
+              values_from = "measurement")
+labs_wide
+```
+
+
+```{r}
+# join demographics and labs_wide
+print(left_join(demographics, labs_wide, by = "respondent_id"), width = Inf)
+```
+
+
+
+
+
+
+## Exercise
+
+How many rows would you expect an *inner join* of `demographics` and `labs_wide` to have? Check your answer by conducting the join using `inner_join()`
+
+### Solution
+
+The number of rows should match the *intersection* of the two datasets. Since all people in `labs_wide` are also in `demographics` (but not the other way around), the join will have the same number of rows in `labs_wide`.
+
+```{r}
+nrow(labs_wide)
+```
+
+The join can be conducted using `inner_join()` and notice that the number of rows matches `labs_wide`.
+
+```{r}
+inner_join(demographics, labs_wide, by = "respondent_id")
+```
+
+Note that if there were observations in `labs_wide` that were not in `demographics`, then the resulting inner join will have fewer rows than both tables.
+
+

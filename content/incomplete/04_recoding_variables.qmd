@@ -1,0 +1,101 @@
+---
+title: "Recoding variables using if_else and case_when"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+# load the tidyverse and demographics dataset
+
+```
+
+
+In this document, you will learn how to "recode" variables by replacing values in a variable with other values of your choice, e.g., converting numerically-encoded variables to categorical/character versions, and vice versa. 
+
+We will introduce two functions for doing this: 
+
+- `if_else()` which can be used to create binary variables (variables with just two distinct values) based on a logical "condition"
+
+- `case_when()` which can be used to create variables with many different values.
+
+
+
+
+
+
+## if_else
+
+Take a look at `interview_examination`:
+
+```{r}
+# apply count() to interview_examination
+
+```
+
+Let's convert it to a numeric format using `if_else()`. 
+
+```{r}
+# use mutate() to create a new column called interview_examination_numeric
+# which is 2 if interview_examination is "both interview and exam"
+# and 1 otherwise
+# then select just interview_examination and interview_examination_numeric
+
+```
+
+
+
+
+
+
+### Exercise
+
+Use `if_else()` to create a variable called `completed_high_school`, which has the values `"yes"` if `education` is equal to at least 3, and `"no"` otherwise.
+
+A link to the documentation for the demographics data can be found [here](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.htm#DMDEDUC2).
+
+
+
+
+
+
+
+
+
+
+## case_when
+
+The `case_when()` function is similar to `if_else()`, but it allows you to have an unlimited number of conditions and corresponding recoded values. 
+
+Take a look at the `marital_status` column of the demographics data:
+
+```{r}
+# apply count() to the marital_status column
+
+```
+
+Let's create a new variable based on `marital_status` that replaces 
+
+- `"married"` with `3`
+
+- `"living_with_partner"` with `2`
+
+- `"divorced"`, `"widowed"`, `"never_married"`, and `"separated"` with `1`
+
+```{r}
+# use mutate and case_when() to create marital_status_numeric 
+# with the values above
+
+```
+
+
+
+
+
+
+
+
+## Execise
+
+Use `case_when()` to convert `born_usa` and `citizen_usa` to "yes" and "no". Bonus points: use `across()`. 
+

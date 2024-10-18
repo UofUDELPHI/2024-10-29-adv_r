@@ -1,0 +1,81 @@
+---
+title: "Reshaping (Pivoting) Data"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+In this lesson, we will be working with a new NHANES table that contains urine albumin and creatinine *lab* data. 
+
+```{r}
+library(tidyverse)
+labs_data <- read.csv("data/urine_albumin_creatinine.csv")
+```
+
+Taking a look at the first 10 rows, it is clear that this data is in a **long format**. This means that each "observational unit" (in this case, each survey respondent) has multiple rows in the data, and the *names* of the variables being measured (the types of labs) are all contained in a single row (called `labs`) and the *values* of each of the variables being measured are all contained in a single row (called `measurements`). Note that each respondent has 5 rows each:
+
+```{r}
+head(labs_data, 10)
+```
+
+A **wide format**, on the other hand, will only have *one* row for each observational unit (respondent), and each of the individual variables being measured (the labs) will have their own column, each containing the *values* for the corresponding lab.
+
+You can convert from a long format to a wide format using the `pivor_wider()` function. The main arguments that you need to provide is the name of the columns that you want to pivot, specifically, the column that contains the variable names (you provide this to the `names_from` argument) and the column that contains the variable measurements (you provide this to the `values_from` argument).
+
+The code below creates a wide-form version of the labs data, and saves it as a new data frame called `labs_data_wide`:
+
+```{r}
+labs_data_wide <- labs_data |> 
+  pivot_wider(names_from = "lab", values_from = "measurement")
+labs_data_wide
+```
+
+If you want to instead convert from a wide format dataset into a longer-format dataset, you can instead use the `pivot_longer()` function. The main argument you need to provide to `pivot_longer()` is `cols` which contains the names of the columns that will be pivoted into a single pair of `name` and `value` columns. You can change the names of the resulting `name` and `value` columns using the `names_to` and `values_to` arguments of `pivot_longer()`.
+
+The following code takes the wide-format version of the labs data and pivots it back into the original long-format version:
+
+```{r}
+labs_data_wide |> pivot_longer(cols = starts_with("ur_"), names_to = "lab", values_to = "measurement")
+```
+
+It is *not* necessarily the case that either one of the long-format versus the wide-format is *always* better than the other. Which one makes more sense will depend on what you plan to do with the data. For example, if you plan to join your labs dataset onto the demographics data that we have been working with previously (you will see this in the next lesson), then you will need to have a single row for each observational unit, and therefore, the wide format is better.
+
+However, if you want to create a visualization that compares the different variables using ggplot2, it is a lot easier if all of the variables appear in a long (name and value column) format. For example, it is much easier to create some boxplots comparing each of the lab measurement distributions using the original long format than the wide format:
+
+```{r}
+# create boxplots using the long format
+labs_data |> ggplot() + 
+  geom_boxplot(aes(x = lab, y = measurement))
+```
+
+
+
+### Exercise
+
+Load the demographics data and use `select()` to select just the `respondent_id`, `gender`, `marital_status` and `race` columns and then use `pivot_longer()` to create the following long-format table (below are just the first 10 rows).
+
+   respondent_id name           value    
+           <dbl> <chr>          <chr>    
+ 1         73557 gender         male     
+ 2         73557 marital_status separated
+ 3         73557 race           black    
+ 4         73558 gender         male     
+ 5         73558 marital_status married  
+ 6         73558 race           white    
+ 7         73559 gender         male     
+ 8         73559 marital_status married  
+ 9         73559 race           white    
+10         73560 gender         male     
+
+#### Solution
+
+```{r}
+demographics <- read_csv("data/demographics.csv")
+demographics
+```
+
+```{r}
+demographics |> 
+  select(respondent_id, gender, marital_status, race) |>
+  pivot_longer(cols = all_of(c("gender", "marital_status", "race"))) 
+```

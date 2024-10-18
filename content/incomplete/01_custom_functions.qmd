@@ -1,0 +1,580 @@
+---
+title: "Custom functions"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+## A simple custom function
+
+In this notebook, you will learn how to define your own functions. 
+
+
+```{r}
+# define a function called `add_one()` that adds 1 to its argument, x
+
+```
+
+The code that is run when you "call" your function is inside the curly parentheses. 
+
+```{r}
+# apply function add_one() to 5
+
+```
+
+```{r}
+# apply function add_one() to 5 using a *named argument*
+
+```
+
+
+What happens when the body of your function contains two pieces of code?
+
+
+```{r}
+# re-define add_one() with two lines of code: x - 1 and x + 1
+
+```
+
+```{r}
+# apply add_one to 5 again
+
+```
+
+
+By default, any custom R function you create will automatically return the final result that is computed. 
+
+
+
+For this reason, it is common to explicitly provide a "return statement".
+
+```{r}
+# redefine add_one() but apply the return statement to x - 1 only
+
+```
+
+```{r}
+# apply add_one to 5 again
+
+```
+
+
+
+
+
+
+
+
+
+## The general syntax of a custom function
+
+The general syntax of a custom function is shown below:
+
+```{r}
+#| eval: false
+
+fn_name <- function(arg) {
+  # code involving arg
+  
+  return(object)
+}
+```
+
+
+
+
+## Exercise
+
+Write a function called "cube" that returns the cubic (`^3`) of the argument  
+
+```{r}
+# define function cube()
+
+```
+
+
+```{r}
+# apply cube() to 3
+
+```
+
+
+
+
+
+
+## Multiple arguments
+
+To create a function with multiple arguments, you need to provide two arguments inside the function definition, separated by a comma. The function below has two arguments: `x` and `y`:
+
+```{r}
+# define a function called add_x2y that computes x + 2y
+
+```
+
+When you call this `add_x2y()`, you can then specify a value for each argument, separated by a comma:
+
+```{r}
+# apply add_x2y() to x = 2 and y = 5
+
+```
+
+When you have multiple arguments, funny things can start to happen when you don't name your arguments. 
+
+
+
+
+
+What do you think will happen if you *first* provide a named argument for the *second* argument `y` by specifying `y = 2`, and then provide an unnamed argument afterwards?
+
+```{r}
+#| error: true
+add_x2y(y = 2, 5)
+```
+
+
+
+
+
+
+R will be clever and it will first apply the named arguments by assigning `y` to the value 2, and then fill in the remaining argument, so `x` will be assigned to the value `5`.
+
+It is good practice to name your arguments if there is any chance for ambiguity.
+
+```{r}
+# run add_x2y() with named arguments x = 2 and y = 5
+
+```
+
+
+
+Note that when you provide named arguments, it technically doesn't matter which order you provide them in (but this is *not* true when you don't provide named arguments!)
+
+```{r}
+# run add_x2y() with named arguments y = 5 and x = 2
+
+```
+
+
+
+
+
+
+
+
+Again, note that even when you provide named arguments in a function call (e.g., in `add_x2y(x = 2, y = 5)`), you are *not* defining a global version of the arguments, i.e., there is no `y` defined:
+
+```{r}
+#| error: true
+
+
+```
+
+
+
+
+
+
+
+What do you think will happen when you call `add_x2y` without any parentheses?
+
+```{r}
+# run add_x2y
+
+```
+
+It will print out the definition of the function!
+
+
+
+
+What do you think will happen when you call `add_x2y` with parentheses but no arguments?
+
+```{r}
+#| error: true
+# run add_x2y()
+
+```
+
+
+
+You get an error! We can fix this by providing "default" values for the arguments.
+
+
+
+
+
+
+
+
+
+
+
+### Default values
+
+To provide *default* values for your arguments, you can assign the argument inside the function definition. In the example below, both `x` and `y` are given the default values of 1.
+
+```{r}
+# redefine add_x2y() with default values for x and y (both 1)
+
+```
+
+
+```{r}
+# call add_x2y() without any arguments
+
+```
+
+
+What happens if we only provide some of the arguments?
+
+```{r}
+# run add_x2y() with a single unnamed argument, 4
+
+```
+
+```{r}
+# run add_x2y() with a single argument: y = 3
+
+```
+
+
+
+
+
+### Exercise
+
+
+Without using the `mean()` function, write a function called `my_mean()` that takes four values as its arguments and computes their mean. Ensure that each argument has a default of 0. Use your function to compute the mean of the values 4, 5, 2, 1.
+
+How would you modify your function to take a single vector of length 4 as its argument instead of four separate arguments? 
+
+
+#### Solution
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## If/else statements
+
+### If statements
+
+
+The following code defines a variable `a`, and then runs some *conditional* code that is only run if the condition `a == 1` is `TRUE`.
+
+```{r}
+# define a variable `a` containing 5
+
+# if `a` is equal to 1, print out some text
+
+
+
+# Then:
+# 1. try the code again, with `a` equal to 1
+# 2. replace the code that is run in the if statement with a mathematical computation
+# 3. replace the code that is run in the if statement with a variable definition (e.g., define y <- 3)
+```
+
+
+
+Unlike for a function, if you define a variable inside an if statement, then this variable will have been defined in our "global" environment too.
+
+```{r}
+# Does y exist globally?
+
+```
+
+
+
+
+
+### Else statemenets
+
+The "else" part of the "if/else" statement provides some code that will be run if the "if" condition is *not* `TRUE`. 
+
+```{r}
+# define a variable "a" containing 3
+
+# if "a" equals 1, define y <- 3, else define y <- 9
+
+```
+
+```{r}
+# check what y was assigned to
+
+```
+
+
+
+
+
+
+### Using "if" statements to provide custom errors for a function
+
+The following uses an "if" statement to add a "stop condition" that throws an error when innapropriate arguments are provided
+
+```{r}
+# add an "if" condition to `my_mean()` to throw an error if the 
+# first argument `a` is either non-numeric OR 
+# if the length of `a` is greater than 1
+
+
+```
+
+
+
+
+
+### Exercise 
+
+1. Write a standalone if/else statement that checks whether the value in a variable called `age` is at least 18. If the age variable is 18 or older, your statement should return the character value of "You are eligible to vote" and if not, your statement should return "You are not eligible to vote"
+
+```{r}
+
+```
+
+2. Write a function, `circle_area()`, that computes the area of a circle (`area = pi * radius^2`) with the radius as its argument, and throws an error if a non-numeric or a negative radius value is given.
+
+```{r}
+
+```
+
+
+Test your function on the following code
+
+```{r}
+#| error: true
+
+# the following should throw an error:
+circle_area("4")
+circle_area(-4)
+# the following should NOT throw an error:
+circle_area(4)
+```
+
+
+
+
+
+
+
+
+
+
+## Default argument options with `match.arg()`
+
+Below, we give an example of providing multiple options to an argument.
+
+```{r}
+# define a function add_x2y() with three arguments:
+# x: a numeric value with default value 1
+# y: a numeric value with default value 1
+# output_type: a character value with default value "numeric" and alternative option "character"
+
+# in the body of the function:
+# use match.arg() to ensure that output_type is one of the options provided
+# use an if statement to modify the output based on the value of output_type
+
+
+
+```
+
+
+```{r}
+# apply add_x2y() to x = 2 and y = 3 and output_type = "character"
+
+```
+
+```{r}
+# apply add_x2y() to x = 2 and y = 3 with no output_type specified
+
+```
+
+```{r}
+#| error: true
+# apply add_x2y() to x = 2 and y = 3 and output_type = "logical" 
+
+
+```
+
+
+
+
+
+
+
+### Exercise
+
+Write a function called `calculate_area()` that will calculate the area of the shape specified in the argument `shape`, which has options "circle", "square", and "triangle". Your function will need to have the following additional arguments: 
+
+- `radius` for computing the area of a circle (`pi * radius^2`), 
+
+- `side` for computing the area of a square (`side^2`), 
+
+- `base` and `height` for computing the area of a triangle (`height * base / 2`). 
+
+Arguments that are not *always* required should have a default value of `NULL`. Your function should throw an error when you fail any value other than "circle", "square" or "triangle" for the `shape` argument (you can use `match.arg()` to do this!).
+
+Your function should throw an error when:
+
+1. the 'radius' argument is not provided when `shape == "circle"`
+
+1. the 'side' argument is not provided when `shape == "square"`
+
+1. the 'base' and 'height' arguments are not provided when `shape == "triangle"`
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Tidy evaluation for writing tidyverse-style functions
+
+Sometimes you want to write a function whose argument is a column of a data frame without quotes (i.e., in the tidyverse style) so that you can use it in a tidyverse function. 
+
+
+
+```{r}
+# load in the tidyverse and demographics NHANES data
+
+```
+
+```{r}
+# take a look at the demographics data
+
+```
+
+Notice that when we refer to the variables from our data frame in the context of the tidyverse (including ggplot2), we do *not* use quotes around the column names:
+
+```{r}
+# Use ggplot2 to compute boxplots for the age_years distribution across 
+# different levels of the language_english variable
+
+```
+
+
+
+Let's try and turn this into a function.
+
+In this first attempt, we use `variable_name` as the argument:
+
+```{r}
+# turn the above boxplot code into a function called createBoxplots()
+
+```
+
+
+```{r} 
+#| error: true
+
+# try to apply createBoxplots() to the language_english column 
+
+```
+
+
+The issue is that ggplot wants us to refer to the column names without quotes, but our custom function doesn't know how to find our column name variable that we provide. 
+
+We can use tidy evaluation (`{{ var_name }}`) to solve this problem.
+
+```{r}
+# update our createBoxplots() function so that it uses tidy_evaluation
+
+```
+
+And now it works:
+
+```{r}
+# apply createBoxplots() to the language_english column
+
+```
+
+
+Let's use our function on a few different columns to make sure:
+
+```{r}
+# apply createBoxplots() to the marital_status column
+
+# apply createBoxplots() to the pregnant column
+
+```
+
+
+
+
+
+
+#### Tip: Using patchwork to patch together plots
+
+The patchwork library can be used to create custom grids of ggplot objects (be sure to expand your plot window if the plots aren't showing up properly):
+
+```{r}
+# load the patchwork library
+
+# create a grid of the language_english and marital_status boxplots
+
+```
+
+```{r}
+# create a grid of the language_english and pregnant boxplots on top 
+# with the marital_status boxplots underneath
+
+```
+
+
+
+
+### Exercise
+
+Create a function called createOrderedBars() that takes a categorical column from `demographics` as its argument and creates a bar chart for the average age for each level of the variable.
+
+*Hint*: Some example code for computing the average age for each level of the `marital_status` variable and creating a bar chart is shown below:
+
+```{r}
+#| eval: false
+demographics |> 
+  group_by(marital_status) |>
+  summarize(mean_age = mean(age_years)) |>
+  ggplot() +
+  geom_col(aes(x = marital_status, 
+               y = mean_age))
+```
+
+
+Challenge activity: Arrange the bars in ascending order, and provide an argument called `ascending` that allows the user to specify whether or not the bars will be arranged in ascending order.
+
+
+
+#### Solution
+
+Note that you'll want to use `geom_col()` instead of `geom_bar()` to create bar charts where the bars have the specific height provided in the y-variable. 
+
+```{r}
+
+```
+
