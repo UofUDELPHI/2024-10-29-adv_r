@@ -32,6 +32,18 @@ Participants in this workshop should already be comfortable working in Quarto (o
 
 **Contact**: Please email andrew.george@hsc.utah.edu or rebecca.barter@hsc.utah.edu for more information.
 
+
+### Posit Cloud
+
+[Click here to join the Posit Cloud workspace](https://posit.cloud/spaces/569320/join?access_code=wEBdUgVZCTVK1UwPUOvHG9EnMXi2NznUTO1uHruB)
+
+### Download files and data
+
+If you are working in RStudio locally (rather than using posit cloud, above) [click here](content.zip "download") to download all of the complete and incomplete .qmd files and data files we will be using throughout the workshop.
+
+
+
+
 ## Schedule
 
 Note that the schedule below serves as a guideline. The start, end, and break times are fixed, but timing for each topics covered may vary as we may go faster or slower through the content.
